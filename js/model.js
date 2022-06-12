@@ -3,6 +3,7 @@ import { getJSON } from "./helper";
 
 export const state = {
   weather: {},
+  hourlyWeather: {},
 };
 
 const getCurrentDay = () => {
@@ -46,8 +47,8 @@ export const loadWeather = async (lat, lng) => {
       `http://api.weatherapi.com/v1/forecast.json?key=${WEATHER_API_KEY}=${lat},${lng}&days=3&aqi=no&alerts=no`
     );
    state.weather = createWeatherObject(data)
-   console.log(data);
-   return state.weather
+   state.hourlyWeather = ''
+   return state.weather , state.hourlyWeather
   } catch (error) {
     console.error(error.message);
   }

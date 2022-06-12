@@ -17,10 +17,10 @@
     "url": "https://github.com/DavidHughesJr/Project---1-Day-Tripper/issues"
   },
   "homepage": "https://github.com/DavidHughesJr/Project---1-Day-Tripper#readme",
-  "devDependencies": {
-    "parcel": "^2.6.0"
-  },
   "dependencies": {
     "mapbox-gl": "^2.8.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.6.0"
   }
 }
