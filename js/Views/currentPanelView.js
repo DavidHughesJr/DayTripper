@@ -1,7 +1,7 @@
 import Views from "./View";
 import { LOAD_CURRENT_WEATHER } from "../config";
 import sunLoader from "url:../../imgs/sun.gif";
-// tester 
+// tester again
 
 class currentPanelView extends Views {
   _parentElement = document.getElementById("current-panel");
