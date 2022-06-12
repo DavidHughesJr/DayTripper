@@ -8,12 +8,10 @@ export const state = {
 
 const getCurrentDay = () => {
     const dateObj = new Date();
-    console.log(dateObj);
     const date = dateObj.toDateString()
     // Get current time and convert it to a modern look // 
     const currentTime = dateObj.toLocaleTimeString()
     const modernTime = currentTime.slice(0, 4).concat(currentTime.slice(7))
-    console.log(modernTime);
     return `${date} , ${modernTime} `
 }
 
@@ -40,16 +38,30 @@ const createWeatherObject = (data) => {
   };
 }
 
+const createHourlyWeather = () => {
+
+
+
+
+}
+
 // ----- API CALL TO GET THE WEATHER ---- //
 export const loadWeather = async (lat, lng) => {
   try {
     const data = await getJSON(
-      `http://api.weatherapi.com/v1/forecast.json?key=${WEATHER_API_KEY}=${lat},${lng}&days=3&aqi=no&alerts=no`
+      `http://api.weatherapi.com/v1/forecast.json?key=912dcf5c18be4069a92161630220506&q=${lat},${lng}&days=7&aqi=no&alerts=no
+`
     );
    state.weather = createWeatherObject(data)
-   state.hourlyWeather = ''
-   return state.weather , state.hourlyWeather
+   console.log(state.hourlyWeather);
+   state.hourlyWeather = createHourlyWeather(data)
+   console.log(data.forecast.forecastday);
+   return state.weather
   } catch (error) {
     console.error(error.message);
   }
 };
+
+export const loadHourlyWeather = async () => {
+  
+}

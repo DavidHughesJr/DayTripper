@@ -1,20 +1,9 @@
-import Views from "./View";
-import { LOAD_CURRENT_WEATHER } from "../config";
-import sunLoader from "url:../../imgs/sun.gif";
-// tester again
+import Views from "../View";
+import { LOAD_CURRENT_WEATHER } from "../../config";
 
-class currentPanelView extends Views {
+class currentWeatherView extends Views {
   _parentElement = document.getElementById("current-panel");
 
-  renderSunLoader() {
-    const markup = `
-      <div id="render-icons--center">
-        <img src="${sunLoader}" alt="loading-sun-images">
-     </div>
-    `;
-    this._clear();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
   renderLocalWeather(data) {
     const loadData = ()=> {
         this._data = data;
@@ -56,4 +45,4 @@ class currentPanelView extends Views {
   }
 }
 
-export default new currentPanelView();
+export default new currentWeatherView();

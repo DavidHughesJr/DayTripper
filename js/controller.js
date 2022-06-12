@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import * as model from "./model";
-import currentPanelView from "./Views/currentPanelView";
+import currentWeatherView from "./Views/weatherViews/currentWeatherView";
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
 
@@ -31,11 +31,11 @@ const generateMap = async (local) => {
     map.addControl(nav, "top-left");
   };
   const getLocalWeather = async () => {
-    currentPanelView.renderSunLoader()
+    currentWeatherView.renderSunLoader()
     try {
       // generate local weather on page load //
       const data = await model.loadWeather(local[1], local[0]);
-      currentPanelView.renderLocalWeather(data);
+      currentWeatherView.renderLocalWeather(data);
     } catch (err) {
       console.error(err.message);
     }
@@ -47,16 +47,16 @@ const generateMap = async (local) => {
                event.lngLat.lat,
                event.lngLat.lng
              );
-             currentPanelView.render(data);
+              currentWeatherView.render(data);
            });
     } catch (error) {
         console.error(err);
     }
   };
   const init = async () => {
-    currentPanelView.addHandlerRender(controlWeather);
-    currentPanelView.addHandlerRender(addExtentions);
-    currentPanelView.addHandlerRender(getLocalWeather);
+     currentWeatherView.addHandlerRender(controlWeather);
+     currentWeatherView.addHandlerRender(addExtentions);
+    currentWeatherView.addHandlerRender(getLocalWeather);
   };
   init();
 };
