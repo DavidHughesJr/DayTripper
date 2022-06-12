@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./js/controller.js"></script>
+    <link rel="stylesheet" href="global.css" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
+    <!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js">
+    </script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        type="text/css" /> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <h3>Day tripper</h3>
+        </div>
+        <!-- <img class="logo" alt="Day Tripper Logo" src="imgs/Subheadng.png"> -->
+        <nav class="nav-bar">
+            <ul class="nav-list">
+                <li><a href="#"> Home </a></li>
+                <li><a href="#"> App </a></li>
+                <li class="cta-btn"><a href="#"> How It Works </a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="homepage-section--1">
+        <div class="hero-container--1 grid">
+            <div class="hero-content--1">
+                <h3>Amazing</h3>
+                <h3>Moments</h3>
+                <h3>Await You</h3>
+            </div>
+            <div class="hero-content--2">
+                <input type="text" id="seach-location--button" />
+                <button class="search-btn--1">Search</button>
+            </div>
+            <div class="hero-content--3"></div>
+        </div>
+    </section>
+    <section class="map-section--1">
+        <div class="map-container flex">
+            <div class="panel">
+                  <!-- <div id="render-icons--center">
+                      <img src="imgs/sun.gif" alt="loading-sun-images">
+                  </div> -->
+                <div class="map-panel--content">
+                    <div id="current-panel">
+                    <!-- <div class="current-temp-container flex">
+                        <div id="current-temp-f"> <span> 98. 1</span> </div>
+                        <div id="current-temp-c" class="celsius hidden"> <span> 31.7 </span> </div>
+                        <button class="temp degree"> °F </button> <button class="temp degree"> °C </button>
+                        <div id="current-icon">
+                            <img src="//cdn.weatherapi.com/weather/64x64/day/119.png" alt="Weather-icon" />
+                        </div>
+                    </div>
+                    <div id="location-name"> <span> Aliceville , Alabama</span></div>
+                    <div class="local-time--container flex">
+                        <div id="local-time"> <span>Wed, 9:57PM</span></div>
+                        <div id="feelslike-f">
+                            <span> Cloudy Feels Like 90°F </span>
+                        </div>
+                        <div id="feelslike-c celsius" class="hidden">
+                            <span> Cloudy Feels Like 31°C </span>
+                        </div>
+                        <div class="high-low--content">
+                            <span> High 96.8°F Low 70.3°F</span>
+                        </div>
+                        <div class="high-low--content celsius hidden">
+                            <span> High 96.8°C Low 70.3°C</span>
+                        </div>
+                    </div> -->
+                    </div>
+                    <div class="button-selection-container flex">
+                        <button class="button-panel--selectors"> Forcast </button>
+                        <button class="button-panel--selectors"> Attractions</button>
+                        <button class="button-panel--selectors"> History </button>
+                    </div>
+                    <div id="forcast-panel" class="map-panel--content forcast-content--1">
+                        <div class="hourly-content--container flex">
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="todays-prediction--1 flex">
+                            <img src="//cdn.weatherapi.com/weather/64x64/day/176.png"
+                                alt="Current weather chance image">
+                            <div class="rain-chance flex">
+                                <span> Patchy rain possible </span>
+                                <div>
+                                    <span>Chance of rain 83%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wind-uv--content flex">
+                            <div class="uv-content"> <img src="imgs/sun-uv.png" alt="sunrise img">
+                                <div> <span> UV index </span> <span> Low </span>
+                                </div>
+                            </div>
+                            <div class="wind-content"> <img src="imgs/wind.png" alt="">
+                                <div>
+                                    <span> Wind</span> <Span> 6mph </Span> </div>
+                            </div>
+
+                            <div class="humidity-content"> <img src="imgs/raindrop.png" alt="sunrise img">
+                                <div class="humidity"> <span> Humidity </span> <span> 60% </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sunrise-sunset--content flex">
+                            <div class="sunrise">
+                                <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="sunrise img">
+                                <div> <span>Sunrise 5:04AM</span></div>
+                            </div>
+                            <div class="sunset">
+                                <img src=" imgs/night.webp" alt="sunset img">
+                                <div>
+                                    <span>Sunset 8:04PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="more-weather--info">
+                            <h3> More information </h3>
+                            <div class="more-weather--content flex">
+                                <span> Heat index 97°F</span>
+                                <span class="celsius hidden"> 70.3°C</span>
+                                <span> Dew point 69.4°F</span>
+                                <span class="celsius hidden"> Dew Point 20.8,°C</span>
+                                <span> Chance of snow 0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="attractions-panel" class="map-panel--content attractions-content--1 hidden">city info</div>
+                    <div id="history-panel" class="map-panel--content histoy-content--1 hidden">History</div>
+                </div>
+            </div>
+            <div id="map" class="map"></div>
+        </div>
+    </section>
+    <section class="saved-items--section">
+        <div class="hidden"></div>
+    </section>
+</body>
+
+</html>

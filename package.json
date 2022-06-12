@@ -1,0 +1,26 @@
+{
+  "name": "day-tripper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidHughesJr/Project---1-Day-Tripper.git"
+  },
+  "author": "David Hughes Jr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidHughesJr/Project---1-Day-Tripper/issues"
+  },
+  "homepage": "https://github.com/DavidHughesJr/Project---1-Day-Tripper#readme",
+  "devDependencies": {
+    "parcel": "^2.6.0"
+  },
+  "dependencies": {
+    "mapbox-gl": "^2.8.2"
+  }
+}

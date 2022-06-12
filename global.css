@@ -1,0 +1,392 @@
+/*  
+----- Colors -----
+MAIN: #DCF9FF
+SECONDARY: #2C3233
+ALT1:
+ALT2:
+LINK HOVER COLOR: #DEF9FF
+
+
+-- FONT SIZES --
+HEADING3 : 8REM
+TEXT-MAIN: 2REM
+TEXT-SIDE-PANEL: 1.2REM
+NAV: 1.8REM
+
+-- PANEL PADDING ---
+PANEL-CONTENT-PADDING : 1REM
+
+
+-- MIN HEIGHT & MAX HEIGHT --
+PANEL : 75REM // MINH
+PANEL-CONTENT- 75REM // MAXH
+
+*/
+
+/* TESTERS FOR CSS // COLOR BLOCKS FOR TESTING */
+
+/* .tester-blue {
+  background: #00d9ff;
+  height: 10rem;
+}
+.tester-green {
+  background-color: green;
+  width: 100%;
+}
+.tester-orange {
+  background-color: orange;
+  width: 100%;
+  height: 10rem;
+} */
+
+/* END TESTERS  */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: lato;
+}
+html {
+  /* 10 * 16 = 0.625 = 62.5%  // 1rem = 10px */
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+nav {
+  font-size: 1.8rem;
+}
+section {
+  width: 100%;
+}
+button:hover {
+  cursor: pointer;
+}
+
+/* --- RESUSEABLE CSS PROPERTIES  */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.flex {
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #dcf9ff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ----- HEADER ---- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7.5rem;
+  background-color: #2c3233;
+  padding: 0 5rem;
+}
+.header img {
+  width: 5%;
+  height: 7.5rem;
+  padding: 0, 48px;
+}
+.header h3 {
+  color: rgb(255, 255, 255);
+  font-size: 3rem;
+  -webkit-text-stroke: 2px #dcf9ff;
+}
+
+/* ----- NAV BAR -----  */
+.nav-bar {
+  color: white;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-list a {
+  text-decoration: none;
+}
+.nav-list a:link,
+.nav-list a:visited {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.nav-list a:active,
+.nav-list a:hover {
+  color: #849599;
+}
+.cta-btn a:link,
+.cta-btn a:visited {
+  padding: 1.5rem;
+  color: #2c3233;
+  border-radius: 8px;
+  background: #def9ff;
+}
+.cta-btn a:active,
+.cta-btn a:hover {
+  background: #00d9ff;
+  color: #2c3233;
+}
+ /* RENDERER ICONS  */
+#render-icons--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ #render-icons--center img {
+  width: 10rem;
+  padding: 2rem;
+ }
+/* ----- HOME PAGE AND HERO SECTION ----- */
+.homepage-section--1 {
+  background-color: #dcf9ff;
+  height: 75rem;
+}
+.hero-container--1 {
+  color: white;
+  font-size: 8rem;
+  padding: 10rem;
+}
+.hero-content--1 {
+  color: white;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.hero-content--1 h3 {
+  color: white;
+  -webkit-text-stroke: 2px #2c3233;
+}
+.hero-content--1 h3:nth-child(2) {
+  color: #2c3233;
+  margin-left: 10rem;
+}
+.hero-content--1 h3:nth-child(3) {
+  margin-left: 20rem;
+}
+/* ----- SEARCH INPUT AND BUTTON ----- */
+.hero-content--2 {
+  grid-row-start: 3;
+  grid-row-end: 3;
+  color: white;
+}
+.hero-content--2 input {
+  outline: none;
+  font-size: 2rem;
+  border: none;
+  width: 46rem;
+  height: 5rem;
+  margin: 0rem;
+}
+.hero-content--2 button {
+  color: white;
+  font-size: 2rem;
+  background-color: #2c3233;
+  border: none;
+  height: 5rem;
+  width: 15rem;
+  position: relative;
+  right: 20px;
+}
+.hero-content--2 button:hover {
+  background-color: #4d5759;
+}
+.hero-content--3 {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  background-image: url(imgs/Car\ tester.png);
+  background-position: center;
+  background-size: cover;
+}
+/* -----  MAPBOX CONTAINER ----- */
+.map-section--1 {
+  background-color: #dcf9ff;
+}
+.map-container {
+  color: #dcf9ff;
+  justify-content: center;
+  padding: 10rem;
+  font-size: 2rem;
+}
+
+/* THE MAP BOX CONTROLLER // MAP ITSELF  */
+.map {
+  width: 80rem;
+  height: 80rem;
+  box-shadow: 1px 1px 5px 1px black;
+}
+
+/* ----- MAP SIDE BAR CONTENT ----  */
+.panel {
+  background-color: white;
+  width: 30rem;
+}
+.map-panel--content {
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 55rem;
+  grid-column-start: 1;
+  color: #2c3233;
+}
+.weather-info {
+  background-color: rgb(80, 81, 81);
+}
+
+/*  ----- MAIN / TOP PANEL WEATHER STYLES -----  */
+#location-name {
+  text-align: center;
+  font-size: 1.8rem;
+}
+#current-temp-f {
+  font-size: 5rem;
+}
+.celsius {
+  color: #2c3233;
+}
+.current-temp-container {
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;  
+}
+
+
+#current-temp-f, #current-temp-c {
+  font-size: 5rem;
+  font-weight: 100;
+}
+.degree {
+  font-size: 2rem;
+  position: relative;
+  bottom: 2rem;
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+}
+.degree:last-of-type {
+  color: lightgrey;
+}
+.degree:last-of-type:hover {
+  color: black
+}
+#location-name {
+  text-align: center;
+  font-size: 1.8rem;
+}
+.wind-humidity-container {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+}
+
+.local-time--container {
+  font-size: 1.2rem;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+/* ----- PANEL BUTTON SELECTORS // TO SELECT BOTTOM PANEL DISPLAY ---- */
+.button-selection-container {
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding-bottom: 2rem;
+  background-color: white;
+}
+.button-panel--selectors {
+  font-size: 1.5rem;
+  color: #ffffff;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #2c3233;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+}
+.button-panel--selectors:hover {
+  color: #2c3233;
+  background-color: #dcf9ff;
+}
+/* ---- HOURLY CHART -----  */
+.hourly-content--container {
+  justify-content: space-evenly;
+}
+.hourly-chart {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.hourly-weather--icon {
+  width: 3rem;
+}
+.hourly-rain--container img {
+  width: 0.8rem;
+}
+/* ----- FORCAST CONTENT PANEL  ----- */
+.todays-prediction--1 {
+  padding: 2rem;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rain-chance {
+  flex-direction: column;
+  font-size: 1.2rem;
+}
+
+/* ----- UV WIND AND HUMIDITY ----- */
+
+.wind-uv--content {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.wind-uv--content img {
+  width: 3rem;
+  padding: 1rem;
+}
+.wind-content {
+  text-align: center;
+}
+/*  ----- SUNRISE AND SUNSET  ----- */
+.sunrise-sunset--content {
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 1rem;
+}
+.sunrise-sunset--content img {
+  width: 6rem;
+}
+
+/* ----- MORE WEATHER INFORMATION ----- */
+.more-weather--info {
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+.more-weather--content {
+    flex-direction: column;
+}
