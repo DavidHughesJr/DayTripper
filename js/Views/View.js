@@ -7,6 +7,9 @@ export default class Views {
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", html);
   }
+  addHandlerRender(handler) {
+    handler();
+  }
   renderSunLoader() {
     const markup = `
       <div id="render-icons--center">

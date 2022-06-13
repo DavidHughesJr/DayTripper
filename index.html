@@ -8,6 +8,7 @@
     <script type="module" src="./js/controller.js"></script>
     <link rel="stylesheet" href="global.css" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js">
     </script>
     <link rel="stylesheet"
@@ -83,12 +84,12 @@
                         <button class="button-panel--selectors"> History </button>
                     </div>
                     <div id="forcast-panel" class="map-panel--content forcast-content--1">
-                        <div class="hourly-content--container flex">
-                            <div class="hourly-content">
+                        <div id="hourly-panel" class="hourly-content--container flex">
+                            <!-- <div class="hourly-content">
                                 <div class="hourly-chart flex">
                                     <span class="hourly-chart--time"> 6PM</span>
                                     <span> <img class="hourly-weather--icon" src="imgs/night.webp"
-                                            alt="hourly-weather logo"></span>
+                                            alt="hourly weather logo"></span>
                                     <span class="fahren"> 70.3°F</span>
                                     <span class="celsius hidden"> 70.3°C</span>
                                     <div class="hourly-rain--container">
@@ -120,7 +121,81 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span class="fahren"> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span class="fahren"> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span class="fahren"> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span class="fahren"> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span class="fahren"> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hourly-content">
+                                <div class="hourly-chart flex">
+                                    <span class="hourly-chart--time"> 6PM</span>
+                                    <span> <img class="hourly-weather--icon" src="imgs/night.webp"
+                                            alt="hourly-weather logo"></span>
+                                    <span class="fahren"> 70.3°F</span>
+                                    <span class="celsius hidden"> 70.3°C</span>
+                                    <div class="hourly-rain--container">
+                                        <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
+                            <i id="arrow-left" class="material-icons">chevron_left</i>
+                            <i id="arrow-right" class="material-icons">chevron_right</i>
                         <div class="weekly-forcast--container">
                             <div class="weekly-forcast--content flex">
                                 <span class="weekly-forcast--day"> Today </span>
@@ -130,7 +205,6 @@
                                       <div> <span> <img src="imgs/raindrop.png" alt=""> 83%</span> </div>
                                 </div>
                                 <div>
-                                    
                                 </div>
                                 <div class="weekly-temp">
                                     <span class="fahren"> 70.3°F</span>

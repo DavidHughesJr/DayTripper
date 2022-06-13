@@ -1,20 +1,17 @@
 import Views from "../View";
 import { LOAD_CURRENT_WEATHER } from "../../config";
 
-class currentWeatherView extends Views {
+class CurrentWeatherView extends Views {
   _parentElement = document.getElementById("current-panel");
 
   renderLocalWeather(data) {
-    const loadData = ()=> {
+    const loadData = () => {
         this._data = data;
         this._clear();
-        const html = this._generateMarkup();
+        const html = this._generateMarkup()
         this._parentElement.insertAdjacentHTML("afterbegin", html);
     }
     setTimeout(loadData, LOAD_CURRENT_WEATHER)
-  }
-  addHandlerRender(handler) {
-    handler();
   }
   _generateMarkup() {
     return ` 
@@ -45,4 +42,4 @@ class currentWeatherView extends Views {
   }
 }
 
-export default new currentWeatherView();
+export default new CurrentWeatherView();
