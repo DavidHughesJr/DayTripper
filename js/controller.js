@@ -34,7 +34,7 @@ const generateMap = async (local) => {
     try {
       // generate local weather on page load //
       const data = await model.loadWeather(local[1], local[0]);
-      // CurrentWeatherView.renderLocalWeather(data);
+      CurrentWeatherView.renderLocalWeather(data);
     } catch (err) {
       console.error(err.message);
     }
@@ -53,10 +53,13 @@ const generateMap = async (local) => {
     }
   };
   const controlLocalHourly = async () => {
-    const localWeather = await model.loadWeather(local[1], local[0])
-    const data = model.state.hourlyWeather
-    HourlyWeatherView.renderHourlyWeather(data)
-
+    try {
+      const localWeather = await model.loadWeather(local[1], local[0]);
+      const data = model.state.hourlyWeather;
+      HourlyWeatherView.renderHourlyWeather(data); 
+    } catch (err) {
+      console.log(err.message);
+    }
   };
   const initMap = async () => {
     CurrentWeatherView.addHandlerRender(controlLocalWeather);

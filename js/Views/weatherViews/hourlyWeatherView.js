@@ -14,29 +14,31 @@ class HourlyWeatherView extends View {
    const loadData = () => {
         this._data = data;
         this._clear();
-       const renderHourly = data.map((data, i) => {
+       const renderHourly = this._data.map((data, i) => {
 
-      const hourly = this._generateMarkup(data);
+      const hourly = this._generateMarkup();
       return hourly
     });
         this._parentElement.insertAdjacentHTML("afterbegin", renderHourly);
     }
     setTimeout(loadData, LOAD_CURRENT_WEATHER)
   }
-  _generateMarkup(data) {
-console.log(moment(data.hour).format('LT'));
+  _generateMarkup() {
     return `<div class="hourly-content">
             <div class="hourly-chart flex">
-                <span class="hourly-chart--time"> ${moment(data.hour).format('LT')}</span>
-                <span> <img class="hourly-weather--icon" src="${data.img}"
+                <span class="hourly-chart--time"> ${moment(this._data.hour).format('LT')}</span>
+                <span> <img class="hourly-weather--icon" src="${this._data.img}"
                         alt="Hourly Weather Logo"></span>
-                <span class="fahren"> ${data.degreeF}</span>
-                <span class="celsius hidden"> ${data.degreeC}</span>
+                <span class="fahren"> ${this._data.degreeF}</span>
+                <span class="celsius hidden"> ${this._data.degreeC}</span>
                 <div class="hourly-rain--container">
-                    <img src="${rain}" alt="rain image"><span> ${data.rainChance}</span>
+                    <img src="${rain}" alt="rain image"><span> ${this._data.rainChance}</span>
                 </div>
             </div>
         </div>`;
+  }
+  _enableHourlySlider(){
+    console.log(this._childrenElements);
   }
 }
 
