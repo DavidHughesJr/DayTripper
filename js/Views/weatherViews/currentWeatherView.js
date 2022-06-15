@@ -4,7 +4,7 @@ import { LOAD_CURRENT_WEATHER } from "../../config";
 class CurrentWeatherView extends Views {
   _parentElement = document.getElementById("current-panel");
 
-  renderLocalWeather(data) {
+  _renderLocalWeather(data) {
     const loadData = () => {
         this._data = data;
         this._clear();

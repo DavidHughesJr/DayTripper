@@ -334,7 +334,6 @@ button:hover {
   margin: 2rem;
   justify-content: space-evenly;
   overflow: hidden;
-  gap: 2rem;
 }
 .hourly-chart {
   flex-direction: column;

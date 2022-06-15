@@ -1,5 +1,5 @@
 {
-  "name": "day-tripper",
+  "name": "daytripper",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,12 +18,10 @@
   },
   "homepage": "https://github.com/DavidHughesJr/Project---1-Day-Tripper#readme",
   "dependencies": {
-    "convert-time": "^0.3.0",
+    "-": "^0.0.1",
     "mapbox-gl": "^2.8.2",
-    "moment": "^2.29.3"
-  },
-  "devDependencies": {
+    "moment": "^2.29.3",
     "parcel": "^2.6.0",
-    "url": "^0.11.0"
+    "regenerator-runtime": "^0.13.9"
   }
 }

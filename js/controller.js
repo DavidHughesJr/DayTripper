@@ -34,7 +34,7 @@ const generateMap = async (local) => {
     try {
       // generate local weather on page load //
       const data = await model.loadWeather(local[1], local[0]);
-      CurrentWeatherView.renderLocalWeather(data);
+      CurrentWeatherView._renderLocalWeather(data);
     } catch (err) {
       console.error(err.message);
     }
@@ -54,9 +54,9 @@ const generateMap = async (local) => {
   };
   const controlLocalHourly = async () => {
     try {
-      const localWeather = await model.loadWeather(local[1], local[0]);
+      await model.loadWeather(local[1], local[0]);
       const data = model.state.hourlyWeather;
-      HourlyWeatherView.renderHourlyWeather(data); 
+      HourlyWeatherView._renderHourlyWeather(data); 
     } catch (err) {
       console.log(err.message);
     }
@@ -71,3 +71,13 @@ const generateMap = async (local) => {
 };
 
 // ELEMENTS CONTROLLED OUTSIDE OF THE MAPS INFORMATION //
+const controlSlider = () => {
+
+HourlyWeatherView.enableHourlySlider()
+
+}
+const init = async () => {
+  HourlyWeatherView.addHandlerRender(controlSlider)
+}
+init()
+ 
