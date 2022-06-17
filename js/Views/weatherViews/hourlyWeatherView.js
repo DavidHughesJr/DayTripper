@@ -9,38 +9,26 @@ class HourlyWeatherView extends View {
   _hourlyArrowRight = document.getElementById("arrow-right");
   _hourlyArrowLeft = document.getElementById("arrow-left");
 
-  _renderHourlyWeather(data) {
-    const loadData = () => {
-      this._data = data;
-      this._clear();
-      const renderHourly = this._data.map((data, i) => {
-        const hourly = this._generateMarkup(data);
-        return hourly;
-      });
-      this._parentElement.insertAdjacentHTML("afterbegin", renderHourly);
+  // _renderHourlyWeather(data) {
+  //   const loadData = () => {
+  //     this._data = data;
+  //     this._clear();
+  //     const renderHourly = this._data.map((data, i) => {
 
-      const childrenElements = document.querySelectorAll(".hourly-content");
-      const hourlyArrowRight = document.getElementById("arrow-right");
-      const hourlyArrowLeft = document.getElementById("arrow-left");
+  //       // remove commas 
+
+  //       const hourly = this._generateMarkup(data);
+  //       return hourly;
+  //     });
+  //     this._parentElement.insertAdjacentHTML("afterbegin", renderHourly);
+
+    
 
 
-      this._parentElement.style.transform =  `translateX(2rem)`
-      const hourlySlider = document.getElementsByClassName("hourly-content--container");
-      let currentSlide = 0
 
-      hourlyArrowRight.addEventListener("click", (e) => {
-        currentSlide++;
-        childrenElements.forEach((hour, i) => {
-          hour.style.transform = `translateX(${150 * (i - currentSlide)}%)`;
-          console.log(hour);
-          console.log(currentSlide);
-          // 0 100%
-        });
-      });
-      console.log(currentSlide);
-    };
-    setTimeout(loadData, LOAD_CURRENT_WEATHER);
-  }
+  //   };
+  //   setTimeout(loadData, LOAD_CURRENT_WEATHER);
+  // }
   _generateMarkup(data) {
     return `<div class="hourly-content">
             <div class="hourly-chart flex">

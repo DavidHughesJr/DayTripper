@@ -56,7 +56,7 @@ const generateMap = async (local) => {
     try {
       await model.loadWeather(local[1], local[0]);
       const data = model.state.hourlyWeather;
-      HourlyWeatherView._renderHourlyWeather(data); 
+      HourlyWeatherView._renderHourlyWeather(data);
     } catch (err) {
       console.log(err.message);
     }
@@ -72,12 +72,95 @@ const generateMap = async (local) => {
 
 // ELEMENTS CONTROLLED OUTSIDE OF THE MAPS INFORMATION //
 const controlSlider = () => {
-
-HourlyWeatherView.enableHourlySlider()
-
-}
+  HourlyWeatherView.enableHourlySlider();
+};
 const init = async () => {
-  HourlyWeatherView.addHandlerRender(controlSlider)
-}
-init()
- 
+  // HourlyWeatherView.addHandlerRender(controlSlider)
+};
+init();
+
+// slider tester
+
+const sliderContainer = document.getElementById("hourly-panel");
+const sliderContent = document.getElementsByClassName("hourly-content");
+const slides = document.querySelectorAll(".hourly-chart");
+
+// // Slider counter
+// let counter = 0;
+// let maxSlides = slides.length - 1;
+
+// // get the transform going
+
+// const rightArrow = document.getElementById("arrow-right");
+// const leftArrow = document.getElementById("arrow-left");
+
+// slides.forEach((hour, i) => {
+//   hour.style.transform = `translateX(${100 * i}%)`;
+// });
+
+// leftArrow.addEventListener("click", (e) => {
+//   if (counter === maxSlides) {
+//     counter = 0;
+//   } else counter++;
+
+//   slides.forEach((hour, i) => {
+//     hour.style.transform = `translateX(${100 * (i - counter)}%)`;
+//   });
+// });
+
+// rightArrow.addEventListener("click", (e) => {
+//   if (counter === 0) {
+//     counter = maxSlides;
+//   } else counter--;
+//   console.log(counter);
+//   slides.forEach((hour, i) => {
+//     hour.style.transform = `translateX(${100 * (i - counter)}%)`;
+//   });
+// });
+
+const hourlySlidesContainer = document.querySelector(
+  ".hourly-slider--container"
+);
+const hourlySlides = document.querySelector(".hourly-content");
+
+let isPressedDown = false;
+let cursorX;
+
+hourlySlidesContainer.addEventListener("mousedown", (e) => {
+  isPressedDown = true;
+  cursorX = e.offsetX - hourlySlides.offsetLeft;
+  console.log(e.offsetX - hourlySlides.offsetLeft);
+  hourlySlidesContainer.style.cursor = 'grabbing'
+});
+window.addEventListener("mouseup", () => {
+  isPressedDown = false;
+});
+hourlySlidesContainer.addEventListener("mouseup", (e) => {
+  hourlySlidesContainer.style.cursor = "grab";
+});
+
+
+sliderContainer.addEventListener("mousemove", (e) => {
+  if (!isPressedDown) return;
+  e.preventDefault();
+  hourlySlides.style.left = `${e.offsetX - cursorX}px`;
+  boundingHourlyRec();
+});
+
+const boundingHourlyRec = () => {
+  const boundingContainer = hourlySlidesContainer.getBoundingClientRect();
+  const boundingSlides = hourlySlides.getBoundingClientRect();
+  console.log(`-${boundingSlides.width - boundingContainer.width}px`);
+  console.log(boundingSlides.width);
+  console.log(boundingContainer.width);
+  console.log(boundingContainer.right);
+  console.log(boundingSlides.right);
+  if (parseInt(hourlySlides.style.left) > 0) {
+    hourlySlides.style.left = 0;
+  } else if (boundingSlides.right < boundingContainer.right){
+    hourlySlides.style.left = `-${boundingContainer.width}px`
+   
+  }
+};
+  boundingHourlyRec();
+

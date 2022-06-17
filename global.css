@@ -246,7 +246,6 @@ button:hover {
   background-color: #ffffff;
   width: 100%;
   min-height: 55rem;
-  grid-column-start: 1;
   color: #2c3233;
 }
 .weather-info {
@@ -330,16 +329,32 @@ button:hover {
   background-color: #dcf9ff;
 }
 /* ---- HOURLY CHART -----  */
-.hourly-content--container {
-  margin: 2rem;
-  justify-content: space-evenly;
+.hourly-slider--container {
+  position: relative;
+  justify-content: flex-start;
+  padding: 2rem;
+  height: 8rem;
+  width: auto;
   overflow: hidden;
+  
+}
+.hourly-content {
+  width: 200%;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 8rem;
+  pointer-events: none;
+
 }
 .hourly-chart {
+  width: 5.2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+
 }
 .hourly-weather--icon {
   width: 3rem;
@@ -414,3 +429,5 @@ button:hover {
 .more-weather--content {
     flex-direction: column;
 }
+
+/* TEST SLIDER  */
