@@ -333,18 +333,18 @@ button:hover {
   position: relative;
   justify-content: flex-start;
   padding: 2rem;
-  height: 8rem;
+  height: 5rem;
   width: auto;
   overflow: hidden;
   
 }
 .hourly-content {
+  height: 8rem;
   width: 200%;
   display: flex;
   position: absolute;
   left: 0;
   top: 0;
-  height: 8rem;
   pointer-events: none;
 
 }

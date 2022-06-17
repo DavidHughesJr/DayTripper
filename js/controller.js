@@ -71,13 +71,7 @@ const generateMap = async (local) => {
 };
 
 // ELEMENTS CONTROLLED OUTSIDE OF THE MAPS INFORMATION //
-const controlSlider = () => {
-  HourlyWeatherView.enableHourlySlider();
-};
-const init = async () => {
-  // HourlyWeatherView.addHandlerRender(controlSlider)
-};
-init();
+
 
 // slider tester
 
@@ -85,38 +79,6 @@ const sliderContainer = document.getElementById("hourly-panel");
 const sliderContent = document.getElementsByClassName("hourly-content");
 const slides = document.querySelectorAll(".hourly-chart");
 
-// // Slider counter
-// let counter = 0;
-// let maxSlides = slides.length - 1;
-
-// // get the transform going
-
-// const rightArrow = document.getElementById("arrow-right");
-// const leftArrow = document.getElementById("arrow-left");
-
-// slides.forEach((hour, i) => {
-//   hour.style.transform = `translateX(${100 * i}%)`;
-// });
-
-// leftArrow.addEventListener("click", (e) => {
-//   if (counter === maxSlides) {
-//     counter = 0;
-//   } else counter++;
-
-//   slides.forEach((hour, i) => {
-//     hour.style.transform = `translateX(${100 * (i - counter)}%)`;
-//   });
-// });
-
-// rightArrow.addEventListener("click", (e) => {
-//   if (counter === 0) {
-//     counter = maxSlides;
-//   } else counter--;
-//   console.log(counter);
-//   slides.forEach((hour, i) => {
-//     hour.style.transform = `translateX(${100 * (i - counter)}%)`;
-//   });
-// });
 
 const hourlySlidesContainer = document.querySelector(
   ".hourly-slider--container"
@@ -152,9 +114,7 @@ const boundingHourlyRec = () => {
   const boundingSlides = hourlySlides.getBoundingClientRect();
   console.log(`-${boundingSlides.width - boundingContainer.width}px`);
   console.log(boundingSlides.width);
-  console.log(boundingContainer.width);
-  console.log(boundingContainer.right);
-  console.log(boundingSlides.right);
+
   if (parseInt(hourlySlides.style.left) > 0) {
     hourlySlides.style.left = 0;
   } else if (boundingSlides.right < boundingContainer.right){
@@ -162,5 +122,5 @@ const boundingHourlyRec = () => {
    
   }
 };
-  boundingHourlyRec();
+
 

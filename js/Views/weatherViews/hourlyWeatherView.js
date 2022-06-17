@@ -5,49 +5,39 @@ import moment from "moment";
 
 class HourlyWeatherView extends View {
   _parentElement = document.getElementById("hourly-panel");
-  _childrenElements = document.querySelectorAll(".hourly-chart");
-  _hourlyArrowRight = document.getElementById("arrow-right");
-  _hourlyArrowLeft = document.getElementById("arrow-left");
+  _sliderContent = document.getElementById("hourly-panel--content");
+  _sliderElements = document.querySelectorAll(".hourly-chart");
 
-  // _renderHourlyWeather(data) {
-  //   const loadData = () => {
-  //     this._data = data;
-  //     this._clear();
-  //     const renderHourly = this._data.map((data, i) => {
-
-  //       // remove commas 
-
-  //       const hourly = this._generateMarkup(data);
-  //       return hourly;
-  //     });
-  //     this._parentElement.insertAdjacentHTML("afterbegin", renderHourly);
-
-    
+  _renderHourlyWeather(data) {
+    const loadData = () => {
+      this._data = data;
+      this._clear();
+      const renderHourly = this._data.map((data, i) => {
+        const hourly = this._generateMarkup(data);
+        return hourly
+        // add join('') to remove commas 
+      }).join('');
+      this._parentElement.insertAdjacentHTML("afterbegin", renderHourly);
+        // create grabbing slider affect to hourly content // 
 
 
-
-  //   };
-  //   setTimeout(loadData, LOAD_CURRENT_WEATHER);
-  // }
-  _generateMarkup(data) {
-    return `<div class="hourly-content">
-            <div class="hourly-chart flex">
-                <span class="hourly-chart--time"> ${moment(data.hour).format(
-                  "LT"
-                )}</span>
-                <span> <img class="hourly-weather--icon" src="${data.img}"
-                        alt="Hourly Weather Logo"></span>
-                <span class="fahren"> ${data.degreeF}</span>
-                <span class="celsius hidden"> ${data.degreeC}</span>
-                <div class="hourly-rain--container">
-                    <img src="${rain}" alt="rain image"><span> ${
-      data.rainChance
-    }</span>
-                </div>
-            </div>
-        </div>`;
+        
+    };
+    setTimeout(loadData, LOAD_CURRENT_WEATHER);
   }
-  enableHourlySlider() {}
+  _generateMarkup(data) {
+   return ` <div class="hourly-chart flex">
+      <span class="hourly-chart--time"> ${moment(data.hour).format("LT")}</span>
+      <span> <img class="hourly-weather--icon" src="${data.img}"
+              alt="hourly weather logo"></span>
+      <span class="fahren"> ${data.degreeF}</span>
+      <span class="celsius hidden"> ${data.degreeC}</span>
+      <div class="hourly-rain--container">
+          <img src="${rain}" alt="rain image"><span> ${data.rainChance}</span>
+      </div>
+      </div>`;
+  }
 }
 
 export default new HourlyWeatherView();
+
