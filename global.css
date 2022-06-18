@@ -332,22 +332,24 @@ button:hover {
 .hourly-slider--container {
   position: relative;
   justify-content: flex-start;
-  padding: 2rem;
-  height: 5rem;
+  padding: 1rem;
+  height: 8rem;
   width: auto;
-  overflow: hidden;
-  
+  /* overflow: hidden; */
+  border-top: 1px solid green;
+}
+.hourly-slider--container:hover {
+cursor: grab;
 }
 .hourly-content {
-  height: 8rem;
-  width: 200%;
   display: flex;
   position: absolute;
   left: 0;
   top: 0;
   pointer-events: none;
-
+  border-bottom: 1px solid black;
 }
+
 .hourly-chart {
   width: 5.2rem;
   flex-direction: column;

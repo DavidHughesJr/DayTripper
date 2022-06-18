@@ -19,6 +19,7 @@ navigator.geolocation.getCurrentPosition(successLocal, errLocal, {
 });
 // CREATING MAP WITH MAPBOX  GETTING CURRENT POSITION //
 const generateMap = async (local) => {
+  console.log(local)
   const map = new mapboxgl.Map({
     container: "map", // container ID
     style: "mapbox://styles/mapbox/streets-v11", // style URL
@@ -75,52 +76,52 @@ const generateMap = async (local) => {
 
 // slider tester
 
-const sliderContainer = document.getElementById("hourly-panel");
-const sliderContent = document.getElementsByClassName("hourly-content");
-const slides = document.querySelectorAll(".hourly-chart");
+// const sliderContainer = document.getElementById("hourly-panel");
+// const sliderContent = document.getElementsByClassName("hourly-content");
+// const slides = document.querySelectorAll(".hourly-chart");
 
 
-const hourlySlidesContainer = document.querySelector(
-  ".hourly-slider--container"
-);
-const hourlySlides = document.querySelector(".hourly-content");
+// const hourlySlidesContainer = document.querySelector(
+//   ".hourly-slider--container"
+// );
+// const hourlySlides = document.querySelector(".hourly-content");
 
-let isPressedDown = false;
-let cursorX;
+// let isPressedDown = false;
+// let cursorX;
 
-hourlySlidesContainer.addEventListener("mousedown", (e) => {
-  isPressedDown = true;
-  cursorX = e.offsetX - hourlySlides.offsetLeft;
-  console.log(e.offsetX - hourlySlides.offsetLeft);
-  hourlySlidesContainer.style.cursor = 'grabbing'
-});
-window.addEventListener("mouseup", () => {
-  isPressedDown = false;
-});
-hourlySlidesContainer.addEventListener("mouseup", (e) => {
-  hourlySlidesContainer.style.cursor = "grab";
-});
+// hourlySlidesContainer.addEventListener("mousedown", (e) => {
+//   isPressedDown = true;
+//   cursorX = e.offsetX - hourlySlides.offsetLeft;
+//   console.log(e.offsetX - hourlySlides.offsetLeft);
+//   hourlySlidesContainer.style.cursor = 'grabbing'
+// });
+// window.addEventListener("mouseup", () => {
+//   isPressedDown = false;
+// });
+// hourlySlidesContainer.addEventListener("mouseup", (e) => {
+//   hourlySlidesContainer.style.cursor = "grab";
+// });
 
 
-sliderContainer.addEventListener("mousemove", (e) => {
-  if (!isPressedDown) return;
-  e.preventDefault();
-  hourlySlides.style.left = `${e.offsetX - cursorX}px`;
-  boundingHourlyRec();
-});
+// sliderContainer.addEventListener("mousemove", (e) => {
+//   if (!isPressedDown) return;
+//   e.preventDefault();
+//   hourlySlides.style.left = `${e.offsetX - cursorX}px`;
+//   boundingHourlyRec();
+// });
 
-const boundingHourlyRec = () => {
-  const boundingContainer = hourlySlidesContainer.getBoundingClientRect();
-  const boundingSlides = hourlySlides.getBoundingClientRect();
-  console.log(`-${boundingSlides.width - boundingContainer.width}px`);
-  console.log(boundingSlides.width);
+// const boundingHourlyRec = () => {
+//   const boundingContainer = hourlySlidesContainer.getBoundingClientRect();
+//   const boundingSlides = hourlySlides.getBoundingClientRect();
+//   console.log(`-${boundingSlides.width - boundingContainer.width}px`);
+//   console.log(boundingSlides.width);
 
-  if (parseInt(hourlySlides.style.left) > 0) {
-    hourlySlides.style.left = 0;
-  } else if (boundingSlides.right < boundingContainer.right){
-    hourlySlides.style.left = `-${boundingContainer.width}px`
+//   if (parseInt(hourlySlides.style.left) > 0) {
+//     hourlySlides.style.left = 0;
+//   } else if (boundingSlides.right < boundingContainer.right){
+//     hourlySlides.style.left = `-${boundingContainer.width}px`
    
-  }
-};
+//   }
+// };
 
 

@@ -22,4 +22,8 @@ export default class Views {
   _clear() {
     this._parentElement.innerHTML = "";
   }
+  _clearCurrent(current){
+    current.innerHTML = '';
+  }
+  
 }
