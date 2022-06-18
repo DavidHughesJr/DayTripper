@@ -5,13 +5,13 @@ import moment from "moment";
 
 class HourlyWeatherView extends View {
   _parentElement = document.getElementById("hourly-panel");
-  _sliderContent = document.getElementById("hourly-panel--content");
+  _childElement = document.getElementById("hourly-panel--content");
   _sliderElements = document.querySelectorAll(".hourly-chart");
 
   _renderHourlyWeather(data) {
     const loadData = () => {
       this._data = data;
-      this._clearCurrent(this._sliderContent);
+      this._clearChild();
 
       const renderHourly = this._data
         .map((data, i) => {
@@ -21,7 +21,7 @@ class HourlyWeatherView extends View {
           // check find a way to load what you need in terms of hours
         })
         .join("");
-      this._sliderContent.insertAdjacentHTML("afterbegin", renderHourly);
+      this._childElement.insertAdjacentHTML("afterbegin", renderHourly);
 
       // create grabbing slider affect to hourly content //
       let isPressedDown = false;
@@ -29,8 +29,8 @@ class HourlyWeatherView extends View {
 
       this._parentElement.addEventListener("mousedown", (e) => {
         isPressedDown = true;
-        cursorX = e.offsetX - this._sliderContent.offsetLeft;
-        console.log(e.offsetX - this._sliderContent.offsetLeft);
+        cursorX = e.offsetX - this._childElement.offsetLeft;
+        console.log(e.offsetX - this._childElement.offsetLeft);
         this._parentElement.style.cursor = "grabbing";
       });
       window.addEventListener("mouseup", () => {
@@ -43,16 +43,16 @@ class HourlyWeatherView extends View {
       this._parentElement.addEventListener("mousemove", (e) => {
         if (!isPressedDown) return;
         e.preventDefault();
-        this._sliderContent.style.left = `${e.offsetX - cursorX}px`;
+        this._childElement.style.left = `${e.offsetX - cursorX}px`;
         boundingHourlyRec();
       });
       const boundingHourlyRec = () => {
         const boundingContainer = this._parentElement.getBoundingClientRect();
-        const boundingSlides = this._sliderContent.getBoundingClientRect();
-        if (parseInt(this._sliderContent.style.left) > 0) {
-          this._sliderContent.style.left = 0;
+        const boundingSlides = this._childElement.getBoundingClientRect();
+        if (parseInt(this._childElement.style.left) > 0) {
+          this._childElement.style.left = 0;
         } else if (boundingSlides.right < boundingContainer.right) {
-          this._sliderContent.style.left = `-${
+          this._childElement.style.left = `-${
             boundingSlides.width - boundingContainer.width
           }px`;
         }
@@ -77,8 +77,8 @@ class HourlyWeatherView extends View {
     <div class='spinner-loader--container'> <div class='spinner-loader'> </div> </div>
 
     `;
-    this._clearCurrent(this._sliderContent);
-    this._sliderContent.insertAdjacentHTML("afterbegin", markup)
+    this._clearChild()
+    this._childElement.insertAdjacentHTML("afterbegin", markup)
   }
 }
 
