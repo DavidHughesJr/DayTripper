@@ -1,6 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import * as model from "./model";
 import CurrentWeatherView from "./Views/weatherViews/CurrentWeatherView";
+import hourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
 import HourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
@@ -40,20 +41,27 @@ const generateMap = async (local) => {
       console.error(err.message);
     }
   };
-  const controlWeather = async () => {
+  // Controls all information that will be displayed on a map click // 
+  const controlInformationOnMapClick = async () => {
     try {
       map.on("click", async (event) => {
-        const data = await model.loadWeather(
+        const currentData = await model.loadWeather(
           event.lngLat.lat,
           event.lngLat.lng
         );
-        CurrentWeatherView.render(data);
+        const hourlyData = model.state.hourlyWeather;
+        hourlyWeatherView.renderSpinnerLoader() // render clear later // 
+
+        // load information from view
+        HourlyWeatherView._renderHourlyWeather(hourlyData)
+        CurrentWeatherView.render(currentData);
       });
     } catch (error) {
       console.error(err);
     }
   };
-  const controlLocalHourly = async () => {
+// controls all information that will be displayed on current location // 
+  const controlLocalInformation = async () => {
     try {
       await model.loadWeather(local[1], local[0]);
       const data = model.state.hourlyWeather;
@@ -63,10 +71,10 @@ const generateMap = async (local) => {
     }
   };
   const initMap = async () => {
+    controlExtentions() // controls all extentions connected to the map
+    CurrentWeatherView.addHandlerRender(controlInformationOnMapClick); 
     CurrentWeatherView.addHandlerRender(controlLocalWeather);
-    CurrentWeatherView.addHandlerRender(controlWeather);
-    CurrentWeatherView.addHandlerRender(controlExtentions);
-    HourlyWeatherView.addHandlerRender(controlLocalHourly);
+    HourlyWeatherView.addHandlerRender(controlLocalInformation);
   };
   initMap();
 };

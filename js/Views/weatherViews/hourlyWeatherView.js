@@ -12,17 +12,18 @@ class HourlyWeatherView extends View {
     const loadData = () => {
       this._data = data;
       this._clearCurrent(this._sliderContent);
+
       const renderHourly = this._data
         .map((data, i) => {
           const hourly = this._generateMarkup(data);
           return hourly;
           // add join('') to remove commas
+          // check find a way to load what you need in terms of hours
         })
         .join("");
       this._sliderContent.insertAdjacentHTML("afterbegin", renderHourly);
 
       // create grabbing slider affect to hourly content //
-
       let isPressedDown = false;
       let cursorX;
 
@@ -70,6 +71,14 @@ class HourlyWeatherView extends View {
           <img src="${rain}" alt="rain image"><span> ${data.rainChance}</span>
       </div>
       </div>`;
+  }
+  renderSpinnerLoader(){
+    const markup = `
+    <div class='spinner-loader--container'> <div class='spinner-loader'> </div> </div>
+
+    `;
+    this._clearCurrent(this._sliderContent);
+    this._sliderContent.insertAdjacentHTML("afterbegin", markup)
   }
 }
 
