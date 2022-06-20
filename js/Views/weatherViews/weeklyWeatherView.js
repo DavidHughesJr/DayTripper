@@ -11,7 +11,6 @@ class WeeklyWeatherView extends View {
 
 
   _renderWeeklyWeather(data) {
-
     const loadData = () => {
       this._data = data;
       this._clear()

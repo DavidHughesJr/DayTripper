@@ -4,7 +4,8 @@ import { getJSON } from "./helper";
 export const state = {
   weather: {},
   hourlyWeather: {},
-  weeklyWeather: {}, 
+  weeklyWeather: {},
+  astroWeather: {}, 
 };
 
 const getCurrentDay = () => {
@@ -59,7 +60,6 @@ const createHourlyWeather = (data) => {
 
 const createWeeklyWeather = (data) => {
   const weekly = data.forecast.forecastday;
-
   const newWeekly = weekly.map((weekly) => {
     const weeklyWeather = {
       date: weekly.date,
@@ -74,14 +74,37 @@ const createWeeklyWeather = (data) => {
   return state.weeklyWeather
 };
 
+const createAstroWeather = (data) => {
+const uvWindHumdity = data.current
+const astroInfo = data.forecast.forecastday[0].astro
+const moreInfo = data.forecast.forecastday[0].hour[0]
+
+console.log(moreInfo);
+const astro = {
+  uv: uvWindHumdity.uv,
+  wind: uvWindHumdity.wind_mph,
+  humdity: uvWindHumdity.humdity,
+  sunrise: astroInfo.sunrise,
+  sunset: astroInfo.sunset,
+  heatIndexF: moreInfo.heatindex_f,
+  heatIndexC: moreInfo.heatindex_c,
+  dewPoint: moreInfo.dewpoint_f,
+  dewPoint: moreInfo.dewpoint_c,
+  chanceOfSnow: moreInfo,
+};
+state.astroWeather = astro 
+return state.astroWeather
+}
+
 // ----- API CALL TO GET THE WEATHER ---- //
 export const loadWeather = async (lat, lng) => {
   try {
     const data = await getJSON(
-      `http://api.weatherapi.com/v1/forecast.json?key=912dcf5c18be4069a92161630220506&q=${lat},${lng}&days=7&aqi=no&alerts=no`
+      ` http://api.weatherapi.com/v1/forecast.json?key=3842bad69ba64b70a98112348222006&q=${lat},${lng}&days=7&aqi=no&alerts=no`
     );
     createHourlyWeather(data);
     createWeeklyWeather(data);
+    createAstroWeather(data)
     state.weather = createWeatherObject(data);
     return state.weather;
   } catch (error) {
