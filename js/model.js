@@ -4,6 +4,7 @@ import { getJSON } from "./helper";
 export const state = {
   weather: {},
   hourlyWeather: {},
+  weeklyWeather: {}, 
 };
 
 const getCurrentDay = () => {
@@ -20,7 +21,7 @@ const createWeatherObject = (data) => {
   const currentForcast = data.forecast.forecastday[0].day;
   const currentLocation = data.location;
   getCurrentDay();
-// return in the format you want // 
+  // return in the format you want //
   return {
     currentWeatherF: currentWeather.temp_f,
     currentWeatherC: currentWeather.temp_c,
@@ -39,22 +40,39 @@ const createWeatherObject = (data) => {
 };
 
 const createHourlyWeather = (data) => {
-const hourly = data.forecast.forecastday[0].hour;
-// map though hourly
-const newHourly = hourly.map((hourly) => {
-  const hourlyWeather = {
-    hour: `${hourly.time}`,
-    img: `${hourly.condition.icon}`,
-    degreeF: `${hourly.temp_f}`,
-    degreeC: `${hourly.temp_c}`,
-    rainChance: `${hourly.chance_of_rain}`,
-  };
-  return hourlyWeather
-});
+  ``;
+  const hourly = data.forecast.forecastday[0].hour;
+  // map though hourly
+  const newHourly = hourly.map((hourly) => {
+    const hourlyWeather = {
+      hour: `${hourly.time}`,
+      img: `${hourly.condition.icon}`,
+      degreeF: `${hourly.temp_f}`,
+      degreeC: `${hourly.temp_c}`,
+      rainChance: `${hourly.chance_of_rain}`,
+    };
+    return hourlyWeather;
+  });
+  state.hourlyWeather = newHourly;
+  return state.hourlyWeather;
+};
 
-state.hourlyWeather = newHourly
- return state.hourlyWeather;
-}
+const createWeeklyWeather = (data) => {
+  const weekly = data.forecast.forecastday;
+
+  const newWeekly = weekly.map((weekly) => {
+    const weeklyWeather = {
+      date: weekly.date,
+      icon: weekly.day.condition.icon,
+      rainChance: weekly.day.daily_chance_of_rain, 
+      tempF: weekly.day.avgtemp_f,
+      tempC: weekly.day.avgtemp_c
+    };
+    return weeklyWeather
+  });
+  state.weeklyWeather = newWeekly
+  return state.weeklyWeather
+};
 
 // ----- API CALL TO GET THE WEATHER ---- //
 export const loadWeather = async (lat, lng) => {
@@ -62,10 +80,11 @@ export const loadWeather = async (lat, lng) => {
     const data = await getJSON(
       `http://api.weatherapi.com/v1/forecast.json?key=912dcf5c18be4069a92161630220506&q=${lat},${lng}&days=7&aqi=no&alerts=no`
     );
-    createHourlyWeather(data); 
+    createHourlyWeather(data);
+    createWeeklyWeather(data);
     state.weather = createWeatherObject(data);
     return state.weather;
   } catch (error) {
     console.error(error.message);
   }
-}
+};

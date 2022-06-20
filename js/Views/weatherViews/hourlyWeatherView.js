@@ -30,7 +30,6 @@ class HourlyWeatherView extends View {
       this._parentElement.addEventListener("mousedown", (e) => {
         isPressedDown = true;
         cursorX = e.offsetX - this._childElement.offsetLeft;
-        console.log(e.offsetX - this._childElement.offsetLeft);
         this._parentElement.style.cursor = "grabbing";
       });
       window.addEventListener("mouseup", () => {

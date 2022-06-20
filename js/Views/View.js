@@ -7,6 +7,12 @@ export default class Views {
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", html);
   }
+  renderChild(data){
+    this._data = data;
+    const html = this._generateMarkup();
+    this._clear();
+    this._childElement.insertAdjacentHTML("afterbegin", html);
+  }
   addHandlerRender(handler) {
     handler();
   }
@@ -22,7 +28,7 @@ export default class Views {
   _clear() {
     this._parentElement.innerHTML = "";
   }
-  _clearChild(current){
+  _clearChild(){
     this._childElement.innerHTML = "";
   }
   
