@@ -49,7 +49,7 @@ class AstroWeatherView extends View {
         <h3> More information </h3>
         <div class="more-weather--content flex">
             <span class="fahren "> Heat Index: ${this._data.heatIndexF}°F</span>
-            <span class="celsius hidden"> ${this._data.heatIndexC}°C</span>
+            <span class="celsius hidden"> Heat Index: ${this._data.heatIndexC}°C</span>
             <span> Wind Direction: ${this._data.windDirection} </span>
             <span> Chance of Snow: ${this._data.chanceOfSnow}%</span>
         </div>

@@ -68,8 +68,8 @@ class HourlyWeatherView extends View {
         .replaceAll(":00", "")}</span>
       <span> <img class="hourly-weather--icon" src="${data.img}"
               alt="hourly weather logo"></span>
-      <span class="fahren"> ${data.degreeF}</span>
-      <span class="celsius hidden"> ${data.degreeC}</span>
+      <span class="fahren"> ${data.degreeF}°F</span>
+      <span class="celsius hidden"> ${data.degreeC}°C</span>
       <div class="hourly-rain--container">
           <img src="${rain}" alt="rain image"><span> ${data.rainChance}</span>
       </div>

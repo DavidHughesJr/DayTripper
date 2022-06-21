@@ -283,6 +283,7 @@ button:hover {
   font-weight: 100;
 }
 .degree {
+  color: lightgrey;
   font-size: 2rem;
   position: relative;
   bottom: 2rem;
@@ -290,10 +291,10 @@ button:hover {
   text-decoration: none;
   background-color: transparent;
 }
-.degree:last-of-type {
-  color: lightgrey;
+.degree:hover {
+  color: black;
 }
-.degree:last-of-type:hover {
+.active-degree {
   color: black;
 }
 #location-name {
@@ -310,7 +311,6 @@ button:hover {
   padding: 2rem;
   flex-direction: column;
 }
-
 /* ----- PANEL BUTTON SELECTORS // TO SELECT BOTTOM PANEL DISPLAY ---- */
 .button-selection-container {
   justify-content: center;

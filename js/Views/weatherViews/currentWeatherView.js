@@ -21,7 +21,7 @@ class CurrentWeatherView extends Views {
     <div class="current-temp-container flex">
       <div id="current-temp-f" class="fahren"> <span> ${this._data.currentWeatherF}</span> </div>
       <div id="current-temp-c" class="celsius hidden"> <span> ${this._data.currentWeatherC} </span> </div>
-      <button id="fahren-button" class="temp degree"> °F </button> <button id="celsius-button" class="temp degree "> °C </button>
+      <button id="fahren-button" class="temp degree active-degree"> °F </button> <button id="celsius-button" class="temp degree "> °C </button>
       <div id="current-icon">
           <img src="${this._data.currentImage}" alt="Weather-icon" />
       </div>

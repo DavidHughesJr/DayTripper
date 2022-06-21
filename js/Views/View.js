@@ -23,17 +23,28 @@ export default class Views {
       const fahrenButton = document.querySelector("#fahren-button");
       const celsius = document.querySelectorAll(".celsius");
       const fahren = document.querySelectorAll(".fahren");
-      
-      // add event listener for buttons 
-     celsiusButton.addEventListener('click', () => {
-      celsius.forEach(degree => degree.classList.toggle('hidden'))
-      fahren.forEach((degree) => degree.classList.toggle("hidden"));
-     })
-     fahrenButton.addEventListener("click", () => {
-       fahren.forEach((degree) => degree.classList.toggle("hidden"));
-       celsius.forEach((degree) => degree.classList.toggle("hidden"));
-     });
 
+      // add event listener for buttons
+      celsiusButton.addEventListener("click", () => {
+        if (celsiusButton.classList.contains("active-degree")) {
+          return;
+        } else {
+          fahrenButton.classList.remove("active-degree");
+          celsiusButton.classList.add("active-degree");
+          celsius.forEach((degree) => degree.classList.toggle("hidden"));
+          fahren.forEach((degree) => degree.classList.toggle("hidden"));
+        }
+      });
+      fahrenButton.addEventListener("click", () => {
+        if (fahrenButton.classList.contains("active-degree")) {
+          return;
+        } else {
+          celsiusButton.classList.remove("active-degree");
+          fahrenButton.classList.add("active-degree");
+          fahren.forEach((degree) => degree.classList.toggle("hidden"));
+          celsius.forEach((degree) => degree.classList.toggle("hidden"));
+        }
+      });
 
       console.log(celsius);
       console.log(fahren);

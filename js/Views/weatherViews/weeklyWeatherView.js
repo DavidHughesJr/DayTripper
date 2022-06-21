@@ -39,7 +39,7 @@ class WeeklyWeatherView extends View {
         <div>
         </div>
         <div class="weekly-temp">
-            <span class="fahren"> ${data.tempF} °F</span>
+            <span class="fahren"> ${data.tempF}°F</span>
             <span class="celsius hidden"> ${data.tempC}°C</span>
         </div>
         </div>
