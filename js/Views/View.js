@@ -31,5 +31,4 @@ export default class Views {
   _clearChild(){
     this._childElement.innerHTML = "";
   }
-  
 }

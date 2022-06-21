@@ -61,7 +61,7 @@ class HourlyWeatherView extends View {
   }
   _generateMarkup(data) {
     return ` <div class="hourly-chart flex">
-      <span class="hourly-chart--time"> ${moment(data.hour).format("LT")}</span>
+      <span class="hourly-chart--time"> ${moment(data.hour).format("LT").replaceAll(':00', '')}</span>
       <span> <img class="hourly-weather--icon" src="${data.img}"
               alt="hourly weather logo"></span>
       <span class="fahren"> ${data.degreeF}</span>

@@ -8,6 +8,7 @@ import WeeklyWeatherView from "./Views/weatherViews/weeklyWeatherView";
 import AstroWeatherView from "./Views/weatherViews/astroWeatherView";
 import PanelView from "./Views/panelView";
 
+
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
 
 // SUCCESSFUL GEOLOCATION
@@ -67,7 +68,7 @@ const generateMap = async (local) => {
           console.log(astroData);
 
         // render a loader 
-        hourlyWeatherView.renderSpinnerLoader();
+       PanelView.clearForcast()
         // load information again on map click // 
         CurrentWeatherView.render(currentData);
         HourlyWeatherView._renderHourlyWeather(hourlyData);
