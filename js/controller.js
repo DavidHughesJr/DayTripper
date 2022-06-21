@@ -46,10 +46,13 @@ const generateMap = async (local) => {
 
 
       // render data with related method // 
+      PanelView._showPanelSelectors()
       CurrentWeatherView._renderLocalWeather(data);
       HourlyWeatherView._renderHourlyWeather(hourlyData);
       WeeklyWeatherView._renderWeeklyWeather(weeklyData);
       AstroWeatherView._renderAstroWeather(astroData)
+      
+      
     } catch (err) {
       console.error(err.message);
     }
@@ -74,6 +77,7 @@ const generateMap = async (local) => {
         HourlyWeatherView._renderHourlyWeather(hourlyData);
         WeeklyWeatherView._renderWeeklyWeather(weeklyData);
         AstroWeatherView._renderAstroWeather(astroData);
+        PanelView._togggleBetweenFehrenAndCelsuis();
       });
     } catch (error) {
       console.error(err);

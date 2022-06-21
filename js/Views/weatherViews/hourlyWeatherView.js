@@ -7,6 +7,7 @@ class HourlyWeatherView extends View {
   _parentElement = document.getElementById("hourly-panel");
   _childElement = document.getElementById("hourly-panel--content");
   _sliderElements = document.querySelectorAll(".hourly-chart");
+  
 
   _renderHourlyWeather(data) {
     const loadData = () => {
@@ -22,7 +23,8 @@ class HourlyWeatherView extends View {
         })
         .join("");
       this._childElement.insertAdjacentHTML("afterbegin", renderHourly);
-
+      // toggle between fahre
+      this._togggleBetweenFahrenAndCelsuis()
       // create grabbing slider affect to hourly content //
       let isPressedDown = false;
       let cursorX;
@@ -61,7 +63,9 @@ class HourlyWeatherView extends View {
   }
   _generateMarkup(data) {
     return ` <div class="hourly-chart flex">
-      <span class="hourly-chart--time"> ${moment(data.hour).format("LT").replaceAll(':00', '')}</span>
+      <span class="hourly-chart--time"> ${moment(data.hour)
+        .format("LT")
+        .replaceAll(":00", "")}</span>
       <span> <img class="hourly-weather--icon" src="${data.img}"
               alt="hourly weather logo"></span>
       <span class="fahren"> ${data.degreeF}</span>
@@ -71,13 +75,13 @@ class HourlyWeatherView extends View {
       </div>
       </div>`;
   }
-  renderSpinnerLoader(){
+  renderSpinnerLoader() {
     const markup = `
     <div class='spinner-loader--container'> <div class='spinner-loader'> </div> </div>
 
     `;
-    this._clearChild()
-    this._childElement.insertAdjacentHTML("afterbegin", markup)
+    this._clearChild();
+    this._childElement.insertAdjacentHTML("afterbegin", markup);
   }
 }
 

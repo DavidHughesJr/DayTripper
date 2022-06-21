@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/DavidHughesJr/Project---1-Day-Tripper#readme",
   "dependencies": {
-    "-": "^0.0.1",
-    "D": "^1.0.0",
     "mapbox-gl": "^2.8.2",
     "moment": "^2.29.3",
-    "parcel": "^2.6.1",
     "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "parcel": "^2.6.1"
   }
 }

@@ -54,9 +54,11 @@
                 <div class="map-panel--content">
                     <div id="current-panel">
                         <!-- <div class="current-temp-container flex">
-                        <div id="current-temp-f"> <span> 98. 1</span> </div>
+                        <div id="current-temp-f class=" fahren"> <span> 98. 1</span> </div>
                         <div id="current-temp-c" class="celsius hidden"> <span> 31.7 </span> </div>
-                        <button class="temp degree"> °F </button> <button class="temp degree"> °C </button>
+                      <button id="fahren-button" class="temp degree fahren"> °F </button> <button id="celsius-button"
+                          class="temp degree celsius"> °C </button>
+                            class="temp degree"> °C </button>
                         <div id="current-icon">
                             <img src="//cdn.weatherapi.com/weather/64x64/day/119.png" alt="Weather-icon" />
                         </div>
@@ -70,7 +72,7 @@
                         <div id="feelslike-c celsius" class="hidden">
                             <span> Cloudy Feels Like 31°C </span>
                         </div>
-                        <div class="high-low--content">
+                        <div class="high-low--content fahren">
                             <span> High 96.8°F Low 70.3°F</span>
                         </div>
                         <div class="high-low--content celsius hidden">
@@ -78,7 +80,7 @@
                         </div>
                     </div> -->
                     </div>
-                    <div class="button-selection-container flex">
+                    <div id="panel-selectors" class="button-selection-container flex hidden">
                         <button class="button-panel--selectors"> Forcast </button>
                         <button class="button-panel--selectors"> Attractions</button>
                         <button class="button-panel--selectors"> History </button>
@@ -87,7 +89,7 @@
                         <!-- <div>
                             <img src="imgs/sun.gif" alt="loading-sun-images">
                         </div> -->
-                        </div>
+                    </div>
                     <div id="forcast-panel" class="map-panel--content">
                         <div id="hourly-panel" class="hourly-slider--container flex">
                             <div id="hourly-panel--content" class="hourly-content">

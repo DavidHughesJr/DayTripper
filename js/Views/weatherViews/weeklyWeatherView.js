@@ -28,7 +28,9 @@ class WeeklyWeatherView extends View {
   _genderateMarkup(data) {
     return `
         <div id="weekly-forcast" class="weekly-forcast--content flex">
-        <span class="weekly-forcast--day"> ${moment(data.date).format('ddd')} </span>
+        <span class="weekly-forcast--day"> ${moment(data.date).format(
+          "ddd"
+        )} </span>
         <img src="${data.icon}"
             alt="Current weather chance image">
         <div class="rain-chance flex">
