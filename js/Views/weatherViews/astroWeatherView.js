@@ -1,10 +1,11 @@
 import View from "../View";
 import rain from "url:../../../imgs/raindrop.png";
 import sun from "url:../../../imgs/sun-uv.png";
-import sun from "url:../../../imgs/wind.png";
+import wind from "url:../../../imgs/wind.png";
+import { LOAD_CURRENT_WEATHER } from "../../config";
 
 class AstroWeatherView extends View {
-  _parentElement = document.getElementById("astro-panel");
+  _parentElement = document.getElementById("astro-container");
 
   _renderAstroWeather(data) {
     const loadData = () => {
@@ -18,41 +19,42 @@ class AstroWeatherView extends View {
   _generateMarkup() {
     return `
     <div class="wind-uv--content flex">
-        <div class="uv-content"> <img src="imgs/sun-uv.png" alt="sunrise img">
-            <div> <span> UV index </span> <span> Low </span>
+        <div class="uv-content"> <img src="${sun}" alt="sunrise img">
+            <div> <span> UV Index: </span> <span> ${this._data.uv} </span>
             </div>
         </div>
-        <div class="wind-content"> <img src="imgs/wind.png" alt="">
+        <div class="wind-content"> <img src="${wind}" alt="Wind image">
             <div>
-                <span> Wind</span> <Span> 6mph </Span> </div>
+                <span> Wind:</span> <Span> ${this._data.wind} mph </Span> </div>
         </div>
 
-        <div class="humidity-content"> <img src="imgs/raindrop.png" alt="sunrise img">
-            <div class="humidity"> <span> Humidity </span> <span> 60% </span>
+        <div class="humidity-content"> <img src="${rain}" alt="sunrise img">
+            <div class="humidity"> <span> Humidity: </span> <span> ${this._data.humidity} </span>
             </div>
         </div>
     </div>
     <div class="sunrise-sunset--content flex">
         <div class="sunrise">
-            <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="sunrise img">
-            <div> <span>Sunrise 5:04AM</span></div>
+            <img src="${this._data.sunImg}" alt="sunrise img">
+            <div> <span> Sunrise: ${this._data.sunrise}</span></div>
         </div>
         <div class="sunset">
-            <img src=" imgs/night.webp" alt="sunset img">
+            <img src="${this._data.setImg}" alt="sunset img">
             <div>
-                <span>Sunset 8:04PM</span>
+                <span> Sunset: ${this._data.sunset}</span>
             </div>
         </div>
     </div>
     <div class="more-weather--info">
         <h3> More information </h3>
         <div class="more-weather--content flex">
-            <span class="fahren "> Heat index 97°F</span>
-            <span class="celsius hidden"> 70.3°C</span>
-            <span class="fahren "> Dew point 69.4°F</span>
-            <span class="celsius hidden"> Dew Point 20.8,°C</span>
-            <span> Chance of snow 0%</span>
+            <span class="fahren "> Heat Index: ${this._data.heatIndexF}</span>
+            <span class="celsius hidden"> ${this._data.heatIndexC}°C</span>
+            <span> Wind Direction: ${this._data.windDirection} </span>
+            <span> Chance of Snow: ${this._data.chanceOfSnow}%</span>
         </div>
     </div> `;
   }
 }
+
+export default new AstroWeatherView()

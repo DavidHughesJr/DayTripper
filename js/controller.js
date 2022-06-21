@@ -5,6 +5,7 @@ import CurrentWeatherView from "./Views/weatherViews/CurrentWeatherView";
 import hourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
 import HourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
 import WeeklyWeatherView from "./Views/weatherViews/weeklyWeatherView";
+import AstroWeatherView from "./Views/weatherViews/astroWeatherView";
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
 
@@ -39,10 +40,14 @@ const generateMap = async (local) => {
       const data = await model.loadWeather(local[1], local[0]);
       const hourlyData = model.state.hourlyWeather;
       const weeklyData = model.state.weeklyWeather;
-      console.log(weeklyData);
+      const astroData = model.state.astroWeather; 
+
+
+      // render data with related method // 
       CurrentWeatherView._renderLocalWeather(data);
       HourlyWeatherView._renderHourlyWeather(hourlyData);
       WeeklyWeatherView._renderWeeklyWeather(weeklyData);
+      AstroWeatherView._renderAstroWeather(astroData)
     } catch (err) {
       console.error(err.message);
     }
@@ -56,10 +61,17 @@ const generateMap = async (local) => {
           event.lngLat.lng
         );
         const hourlyData = model.state.hourlyWeather;
-        hourlyWeatherView.renderSpinnerLoader(); // render clear later //
-        // load information from view
-        HourlyWeatherView._renderHourlyWeather(hourlyData);
+        const weeklyData = model.state.weeklyWeather;
+        const astroData = model.state.astroWeather;
+          console.log(astroData);
+
+        // render a loader 
+        hourlyWeatherView.renderSpinnerLoader();
+        // load information again on map click // 
         CurrentWeatherView.render(currentData);
+        HourlyWeatherView._renderHourlyWeather(hourlyData);
+        WeeklyWeatherView._renderWeeklyWeather(weeklyData);
+        AstroWeatherView._renderAstroWeather(astroData);
       });
     } catch (error) {
       console.error(err);

@@ -78,19 +78,20 @@ const createAstroWeather = (data) => {
 const uvWindHumdity = data.current
 const astroInfo = data.forecast.forecastday[0].astro
 const moreInfo = data.forecast.forecastday[0].hour[0]
-
-console.log(moreInfo);
 const astro = {
   uv: uvWindHumdity.uv,
   wind: uvWindHumdity.wind_mph,
-  humdity: uvWindHumdity.humdity,
+  humidity: uvWindHumdity.humidity,
+  sunImg: "//cdn.weatherapi.com/weather/64x64/day/113.png",
   sunrise: astroInfo.sunrise,
+  setImg: "//cdn.weatherapi.com/weather/64x64/night/113.png",
   sunset: astroInfo.sunset,
-  heatIndexF: moreInfo.heatindex_f,
-  heatIndexC: moreInfo.heatindex_c,
-  dewPoint: moreInfo.dewpoint_f,
-  dewPoint: moreInfo.dewpoint_c,
-  chanceOfSnow: moreInfo,
+  heatIndexF: uvWindHumdity.feelslike_f,
+  heatIndexC: uvWindHumdity.feelslike_c,
+  windDirection: uvWindHumdity.wind_dir, 
+  dewPointF: moreInfo.dewpoint_f,
+  dewPointC: moreInfo.dewpoint_c,
+  chanceOfSnow: moreInfo.chance_of_snow,
 };
 state.astroWeather = astro 
 return state.astroWeather

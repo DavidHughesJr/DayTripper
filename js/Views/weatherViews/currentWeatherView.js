@@ -33,10 +33,10 @@ class CurrentWeatherView extends Views {
           <span> ${this._data.currentCondition}Feels Like ${this._data.feelsLikeC}°C </span>
       </div>
       <div class="high-low--content">
-          <span> ${this._data.currentHighF}°F Low ${this._data.currentLowF}°F</span>
+          <span> High ${this._data.currentHighF}°F Low ${this._data.currentLowF}°F</span>
       </div>
       <div class="high-low--content celsius hidden">
-          <span> High ${this._data.currentHighC}°C ${this._data.currentLowC}°C</span>
+          <span> High ${this._data.currentHighC}°C Low ${this._data.currentLowC}°C</span>
       </div>
   </div>`;
   }
