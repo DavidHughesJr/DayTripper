@@ -7,16 +7,23 @@ class HourlyWeatherView extends View {
   _parentElement = document.getElementById("hourly-panel");
   _childElement = document.getElementById("hourly-panel--content");
   _sliderElements = document.querySelectorAll(".hourly-chart");
-  
 
   _renderHourlyWeather(data) {
     const loadData = () => {
-      this._data = data;
       this._clearChild();
 
+      // show remainding hours
+      // old date
+      // const currentHour = moment(getCurrentDate).format("YYYY-MM-DD HH:00");
+
+      const getCurrentDate = new Date();
+      const hourSlice = getCurrentDate.getHours();
+      console.log(hourSlice);
+      this._data = data.slice(hourSlice);
       const renderHourly = this._data
         .map((data, i) => {
           const hourly = this._generateMarkup(data);
+
           return hourly;
           // add join('') to remove commas
           // check find a way to load what you need in terms of hours
@@ -24,7 +31,7 @@ class HourlyWeatherView extends View {
         .join("");
       this._childElement.insertAdjacentHTML("afterbegin", renderHourly);
       // toggle between fahre
-      this._togggleBetweenFahrenAndCelsuis()
+      this._togggleBetweenFahrenAndCelsuis();
       // create grabbing slider affect to hourly content //
       let isPressedDown = false;
       let cursorX;
@@ -71,7 +78,7 @@ class HourlyWeatherView extends View {
       <span class="fahren"> ${data.degreeF}°F</span>
       <span class="celsius hidden"> ${data.degreeC}°C</span>
       <div class="hourly-rain--container">
-          <img src="${rain}" alt="rain image"><span> ${data.rainChance}</span>
+          <img src="${rain}" alt="rain image"><span> ${data.rainChance}%</span>
       </div>
       </div>`;
   }

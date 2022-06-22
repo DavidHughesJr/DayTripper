@@ -45,11 +45,6 @@ export default class Views {
           celsius.forEach((degree) => degree.classList.toggle("hidden"));
         }
       });
-
-      console.log(celsius);
-      console.log(fahren);
-      console.log(celsiusButton);
-      console.log(fahrenButton);
     };
     setTimeout(loadData, LOAD_CURRENT_WEATHER);
   }
