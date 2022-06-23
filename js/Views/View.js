@@ -1,7 +1,7 @@
 import sunLoader from "url:../../imgs/sun.gif";
 import { LOAD_CURRENT_WEATHER } from "../config";
 
-export default class Views {
+export default class View {
   render(data) {
     this._data = data;
     const html = this._generateMarkup();

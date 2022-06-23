@@ -13,13 +13,10 @@ class HourlyWeatherView extends View {
       this._clearChild();
 
       // show remainding hours
-      // old date
-      // const currentHour = moment(getCurrentDate).format("YYYY-MM-DD HH:00");
-
       const getCurrentDate = new Date();
       const hourSlice = getCurrentDate.getHours();
-      console.log(hourSlice);
       this._data = data.slice(hourSlice);
+
       const renderHourly = this._data
         .map((data, i) => {
           const hourly = this._generateMarkup(data);

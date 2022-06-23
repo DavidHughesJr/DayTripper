@@ -2,11 +2,12 @@ import mapboxgl from "mapbox-gl";
 import * as model from "./model";
 import View from "./Views/View";
 import CurrentWeatherView from "./Views/weatherViews/CurrentWeatherView";
-import hourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
-import HourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
-import WeeklyWeatherView from "./Views/weatherViews/weeklyWeatherView";
-import AstroWeatherView from "./Views/weatherViews/astroWeatherView";
-import PanelView from "./Views/panelView";
+import hourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
+import HourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
+import WeeklyWeatherView from "./Views/weatherViews/WeeklyWeatherView";
+import AstroWeatherView from "./Views/weatherViews/AstroWeatherView";
+import PanelView from "./Views/weatherViews/PanelView";
+import HomePageView from "./Views/pageViews/HomepageView"
 
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
@@ -68,8 +69,7 @@ const generateMap = async (local) => {
         const hourlyData = model.state.hourlyWeather;
         const weeklyData = model.state.weeklyWeather;
         const astroData = model.state.astroWeather;
-          console.log(astroData);
-
+        
         // render a loader 
        PanelView.clearForcast()
         // load information again on map click // 
@@ -77,7 +77,6 @@ const generateMap = async (local) => {
         HourlyWeatherView._renderHourlyWeather(hourlyData);
         WeeklyWeatherView._renderWeeklyWeather(weeklyData);
         AstroWeatherView._renderAstroWeather(astroData);
-        PanelView._togggleBetweenFehrenAndCelsuis();
       });
     } catch (error) {
       console.error(err);
@@ -91,3 +90,4 @@ const generateMap = async (local) => {
   };
   initMap();
 };
+

@@ -1,7 +1,7 @@
-import { LOAD_ON_CLICK } from "../config";
-import View from "./View";
-import sunLoader from "url:../../imgs/sun.gif";
-import { LOAD_CURRENT_WEATHER } from "../config";
+import { LOAD_ON_CLICK } from "../../config";
+import View from "../View";
+import sunLoader from "url:../../../imgs/sun.gif" 
+import { LOAD_CURRENT_WEATHER } from "../../config";
 
 class PanelView extends View {
   _parentElement = document.getElementById("panel-selectors");
@@ -9,7 +9,6 @@ class PanelView extends View {
   _attractionsPanel = document.getElementById("forcast-panel");
   _historyPanel = document.getElementById("forcast-panel");
   _loaderPanel = document.getElementById("loader-panel");
-
 
   _showPanelSelectors() {
     this._parentElement.classList.remove("hidden");

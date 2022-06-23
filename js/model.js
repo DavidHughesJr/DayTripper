@@ -112,3 +112,22 @@ export const loadWeather = async (lat, lng) => {
     console.error(error.message);
   }
 };
+// --- API CALL TO GET THE ATTRACTION DATA --- // 
+
+export const loadAttractions = async (lat, lng) => {
+  try {
+    const options = {
+      method: "POST",
+      headers: {
+        "X-RapidAPI-Key": "a5e24c2040mshd8b74b4cda9ea81p1c011ajsn693d707f467c",
+        "X-RapidAPI-Host": "travel-places.p.rapidapi.com",
+      },
+    };
+    const data = await fetch("https://travel-places.p.rapidapi.com/", options);
+    const response = data.json()
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
+loadAttractions()
