@@ -18,7 +18,7 @@ class HourlyWeatherView extends View {
       this._data = data.slice(hourSlice);
 
       const renderHourly = this._data
-        .map((data, i) => {
+        .map((data) => {
           const hourly = this._generateMarkup(data);
 
           return hourly;
@@ -54,7 +54,10 @@ class HourlyWeatherView extends View {
       const boundingHourlyRec = () => {
         const boundingContainer = this._parentElement.getBoundingClientRect();
         const boundingSlides = this._childElement.getBoundingClientRect();
+        console.log(this._childElement);
         if (parseInt(this._childElement.style.left) > 0) {
+          this._childElement.style.left = 0;
+        } else if (boundingSlides.width < boundingContainer.width) {
           this._childElement.style.left = 0;
         } else if (boundingSlides.right < boundingContainer.right) {
           this._childElement.style.left = `-${

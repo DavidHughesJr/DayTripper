@@ -49,7 +49,7 @@
                 <!-- <div id="render-icons--center">
                       <img src="imgs/sun.gif" alt="loading-sun-images">
                   </div> -->
-                <div class="map-panel--content">
+                <div class="current-content--weather">
                     <div id="current-panel">
                         <!-- <div class="current-temp-container flex">
                         <div id="current-temp-f class=" fahren"> <span> 98. 1</span> </div>
@@ -79,16 +79,19 @@
                     </div> -->
                     </div>
                     <div id="panel-selectors" class="button-selection-container flex hidden">
-                        <button class="button-panel--selectors"> Forcast </button>
-                        <button class="button-panel--selectors"> Attractions</button>
-                        <button class="button-panel--selectors"> History </button>
+                        <button id="forcast-panel--selector" class="forcast-panel button-panel--selectors active-panel"> Forcast </button>
+                        <button id="attractions-panel--selector" class="attractions-panel button-panel--selectors"> Attractions</button>
+                        <button id="resturants-panel--selector" class="resturants-panel button-panel--selectors"> Resturants
+                        </button>
+                        <button id="hotels-panel--selector" class="bookings-panel button-panel--selectors"> Hotels
+                        </button>
                     </div>
                     <div id="loader-panel" class="loader-panel--container">
                         <!-- <div>
                             <img src="imgs/sun.gif" alt="loading-sun-images">
                         </div> -->
                     </div>
-                    <div id="forcast-panel" class="map-panel--content">
+                    <div id="forcast-panel--content" class="map-panel--content">
                         <div id="hourly-panel" class="hourly-slider--container flex">
                             <div id="hourly-panel--content" class="hourly-content">
                                 <!-- <div class="hourly-chart flex">
@@ -160,8 +163,72 @@
                             </div> -->
                         </div>
                     </div>
-                    <div id="attractions-panel" class="map-panel--content attractions-content--1 hidden">city info</div>
-                    <div id="history-panel" class="map-panel--content histoy-content--1 hidden">History</div>
+                    <div id="attractions-panel--content" class="map-panel--content attractions-content--1 hidden">
+
+
+
+                    <div class="attractions-cards"> </div>
+                    <div class="attractions-cards"> </div>
+                    <div class="attractions-cards"> </div>
+                    <div class="attractions-cards"> </div>
+                    <div class="attractions-cards"> </div>
+
+
+
+
+
+                    </div>
+                    
+
+                    <!-- "location_id":"12065149"
+                    "name":"Maderla"
+                    "latitude":"12.91283"
+                    "longitude":"100.87808"
+                    "num_reviews":"3"
+                    "timezone":"Asia/Bangkok"
+                    "location_string":"Pattaya, Chonburi Province"
+                    "photo":{...}8 items
+                    "awards":[]0 items
+                    "doubleclick_zone":"as.thailand.pattaya"
+                    "preferred_map_engine":"default"
+                    "raw_ranking":"3.017382860183716"
+                    "ranking_geo":"Pattaya"
+                    "ranking_geo_id":"293919"
+                    "ranking_position":"1086"
+                    "ranking_denominator":"1232"
+                    "ranking_category":"restaurant"
+                    "ranking":"#1,025 of 1,341 Restaurants in Pattaya"
+                    "distance":"0.0022289238083088064"
+                    "distance_string":"2 m"
+                    "bearing":"south"
+                    "rating":"3.5"
+                    "is_closed":false
+                    "open_now_text":"Closes in 20 min"
+                    "is_long_closed":false
+                    "price_level":""
+                    "description":""
+                    "web_url":"https://www.tripadvisor.com/Restaurant_Review-g293919-d12065149-Reviews-Maderla-Pattaya_Chonburi_Province.html"
+                    "write_review":"https://www.tripadvisor.com/UserReview-g293919-d12065149-Maderla-Pattaya_Chonburi_Province.html"
+                    "ancestors":[...]3 items
+                    "category":{...}2 items
+                    "subcategory":[]0 items
+                    "parent_display_name":"Pattaya"
+                    "is_jfy_enabled":false
+                    "nearest_metro_station":[]0 items
+                    "reviews":[...]1 item
+                    "phone":"+66 91 728 9647"
+                    "website":"http://www.facebook.com/MaderlaPhuThaiKaiyang/?fref=ts"
+                    "address_obj":{...}6 items
+                    "address":"223/10-11 Third Road M.9 Nongprue Banglamung Chonburi, Pattaya 20150 Thailand"
+                    "hours":{...}2 items
+                    "is_candidate_for_contact_info_suppression":false
+                    "cuisine":[]0 items
+                    "dietary_restrictions":[]0 items
+                    "establishment_types":[...]1 item -->
+
+
+                    <div id="resturants-panel--content" class="map-panel--content resturants-content--1 hidden"> food info</div>
+                     <div id="hotels-panel--content" class="map-panel--content hotels-content--1 hidden">Hotel Info</div>
                 </div>
             </div>
             <div id="map" class="map"></div>

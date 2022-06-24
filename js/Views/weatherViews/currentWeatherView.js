@@ -30,7 +30,7 @@ class CurrentWeatherView extends Views {
     <div class="local-time--container flex">
         <div id="local-time"> <span>${this._data.currentTime}</span></div>
         <div id="feelslike-f" class="fahren">
-          <span> ${this._data.currentCondition}Feels Like ${this._data.feelsLikeF}°F </span>
+          <span> ${this._data.currentCondition} Feels Like ${this._data.feelsLikeF}°F </span>
       </div>
       <div id="feelslike-c" class="celsius hidden">
           <span> ${this._data.currentCondition}Feels Like ${this._data.feelsLikeC}°C </span>
