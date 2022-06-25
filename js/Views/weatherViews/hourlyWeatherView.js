@@ -4,6 +4,7 @@ import { LOAD_CURRENT_WEATHER } from "../../config";
 import moment from "moment";
 
 class HourlyWeatherView extends View {
+  _data; 
   _parentElement = document.getElementById("hourly-panel");
   _childElement = document.getElementById("hourly-panel--content");
   _sliderElements = document.querySelectorAll(".hourly-chart");
@@ -54,7 +55,6 @@ class HourlyWeatherView extends View {
       const boundingHourlyRec = () => {
         const boundingContainer = this._parentElement.getBoundingClientRect();
         const boundingSlides = this._childElement.getBoundingClientRect();
-        console.log(this._childElement);
         if (parseInt(this._childElement.style.left) > 0) {
           this._childElement.style.left = 0;
         } else if (boundingSlides.width < boundingContainer.width) {

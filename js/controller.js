@@ -8,6 +8,8 @@ import WeeklyWeatherView from "./Views/weatherViews/WeeklyWeatherView";
 import AstroWeatherView from "./Views/weatherViews/AstroWeatherView";
 import PanelView from "./Views/weatherViews/PanelView";
 import HomePageView from "./Views/pageViews/HomepageView"
+import AttractionsView from "./Views/attractionViews/attractionsView";
+import AttractionsPaginationView from "./Views/attractionViews/attractionsPagination";
 
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
@@ -44,20 +46,36 @@ const generateMap = async (local) => {
       const hourlyData = model.state.hourlyWeather;
       const weeklyData = model.state.weeklyWeather;
       const astroData = model.state.astroWeather; 
-
-
       // render data with related method // 
       PanelView._showPanelSelectors()
       CurrentWeatherView._renderLocalWeather(data);
       HourlyWeatherView._renderHourlyWeather(hourlyData);
       WeeklyWeatherView._renderWeeklyWeather(weeklyData);
       AstroWeatherView._renderAstroWeather(astroData)
-      
-      
     } catch (err) {
       console.error(err.message);
     }
   };
+  const controlLocalAttractions = async () => {
+    try {
+      const data = await model.loadAttractions(local[1], local[0]);
+
+      AttractionsView._renderAttractions(model.getAttractionsPage(1));
+      // render pagination
+      AttractionsPaginationView.render(model.state.searchAttractions);
+    } catch (err) {
+      console.log(err); 
+    } 
+  }
+  const controlAttractionsPagination = (goToPage) => {
+    // render more or past results
+    console.log(model.getAttractionsPage(goToPage));
+    console.log(goToPage);
+    AttractionsView._renderAttractions(model.getAttractionsPage(goToPage));
+    // render pagination
+    AttractionsPaginationView.render(model.state.searchAttractions);
+   
+  }
   // Controls all information that will be displayed on a map click //
   const controlInformationOnMapClick = async () => {
     try {
@@ -87,6 +105,8 @@ const generateMap = async (local) => {
     controlExtentions(); // controls all extentions connected to the map
     CurrentWeatherView.addHandlerRender(controlLocalWeather);
     CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
+    AttractionsView.addHandlerRender(controlLocalAttractions);
+    AttractionsPaginationView.addHandlerClick(controlAttractionsPagination)
   };
   initMap();
 };

@@ -31,7 +31,7 @@
             </ul>
         </nav>
     </header>
-    <section id="hero-1"class="homepage-section--1">
+    <section id="hero-1" class="homepage-section--1">
         <div class="hero-container--1 flex">
             <div class="hero-content--1">
                 <h3>Amazing</h3>
@@ -39,7 +39,7 @@
                 <h3>Await You</h3>
             </div>
             <div class="hero-content--2">
-                <button id ='start-btn--1'class="start-btn--1"> Start</button>
+                <button id='start-btn--1' class="start-btn--1"> Start</button>
             </div>
         </div>
     </section>
@@ -79,9 +79,12 @@
                     </div> -->
                     </div>
                     <div id="panel-selectors" class="button-selection-container flex hidden">
-                        <button id="forcast-panel--selector" class="forcast-panel button-panel--selectors active-panel"> Forcast </button>
-                        <button id="attractions-panel--selector" class="attractions-panel button-panel--selectors"> Attractions</button>
-                        <button id="resturants-panel--selector" class="resturants-panel button-panel--selectors"> Resturants
+                        <button id="forcast-panel--selector" class="forcast-panel button-panel--selectors active-panel">
+                            Forcast </button>
+                        <button id="attractions-panel--selector" class="attractions-panel button-panel--selectors">
+                            Attractions</button>
+                        <button id="resturants-panel--selector" class="resturants-panel button-panel--selectors">
+                            Resturants
                         </button>
                         <button id="hotels-panel--selector" class="bookings-panel button-panel--selectors"> Hotels
                         </button>
@@ -163,72 +166,43 @@
                             </div> -->
                         </div>
                     </div>
-                    <div id="attractions-panel--content" class="map-panel--content attractions-content--1 hidden">
-
-
-
-                    <div class="attractions-cards"> </div>
-                    <div class="attractions-cards"> </div>
-                    <div class="attractions-cards"> </div>
-                    <div class="attractions-cards"> </div>
-                    <div class="attractions-cards"> </div>
-
-
-
-
-
+                    <div id="attractions-panel--content" class="map-panel--content attractions-content--1 flex hidden">
+                        <div class="attractions-header">
+                            <span> Please See Website For More information </span>
+                        </div>
+                        <div id="attractions">
+                            <div class="attractions-content--2">
+                                <div class="attractions-cards flex">
+                                    <div class="attractions-photo">
+                                        <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/07/fd/20/caption.jpg"
+                                            alt="attractions photo">
+                                    </div>
+                                    <div class="attractions-info--container flex">
+                                        <div class="attractions-info--1">
+                                            <div><span> Location </span></div>
+                                            <div><span> Name </span></div>
+                                            <div><span>
+                                                    <Address> Address </Address>
+                                                </span></div>
+                                            <div> <span> Open Now </span> </div>
+                                        </div>
+                                        <div class="attractions-info--2 flex">
+                                            <div> <span> Save ❤ </span> </div>
+                                            <div> <span> <a href=""> More Info 🌐 </a> </span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="pagination-attraction" class="pagination flex">
+                            <button class="btn-att--pane hidden"> Previous </button>
+                            <div class="page-number"> 1 of 3 </div>
+                            <button class="btn-att--pane"> Next </button>
+                        </div>
                     </div>
-                    
-
-                    <!-- "location_id":"12065149"
-                    "name":"Maderla"
-                    "latitude":"12.91283"
-                    "longitude":"100.87808"
-                    "num_reviews":"3"
-                    "timezone":"Asia/Bangkok"
-                    "location_string":"Pattaya, Chonburi Province"
-                    "photo":{...}8 items
-                    "awards":[]0 items
-                    "doubleclick_zone":"as.thailand.pattaya"
-                    "preferred_map_engine":"default"
-                    "raw_ranking":"3.017382860183716"
-                    "ranking_geo":"Pattaya"
-                    "ranking_geo_id":"293919"
-                    "ranking_position":"1086"
-                    "ranking_denominator":"1232"
-                    "ranking_category":"restaurant"
-                    "ranking":"#1,025 of 1,341 Restaurants in Pattaya"
-                    "distance":"0.0022289238083088064"
-                    "distance_string":"2 m"
-                    "bearing":"south"
-                    "rating":"3.5"
-                    "is_closed":false
-                    "open_now_text":"Closes in 20 min"
-                    "is_long_closed":false
-                    "price_level":""
-                    "description":""
-                    "web_url":"https://www.tripadvisor.com/Restaurant_Review-g293919-d12065149-Reviews-Maderla-Pattaya_Chonburi_Province.html"
-                    "write_review":"https://www.tripadvisor.com/UserReview-g293919-d12065149-Maderla-Pattaya_Chonburi_Province.html"
-                    "ancestors":[...]3 items
-                    "category":{...}2 items
-                    "subcategory":[]0 items
-                    "parent_display_name":"Pattaya"
-                    "is_jfy_enabled":false
-                    "nearest_metro_station":[]0 items
-                    "reviews":[...]1 item
-                    "phone":"+66 91 728 9647"
-                    "website":"http://www.facebook.com/MaderlaPhuThaiKaiyang/?fref=ts"
-                    "address_obj":{...}6 items
-                    "address":"223/10-11 Third Road M.9 Nongprue Banglamung Chonburi, Pattaya 20150 Thailand"
-                    "hours":{...}2 items
-                    "is_candidate_for_contact_info_suppression":false
-                    "cuisine":[]0 items
-                    "dietary_restrictions":[]0 items
-                    "establishment_types":[...]1 item -->
-
-
-                    <div id="resturants-panel--content" class="map-panel--content resturants-content--1 hidden"> food info</div>
-                     <div id="hotels-panel--content" class="map-panel--content hotels-content--1 hidden">Hotel Info</div>
+                    <div id="resturants-panel--content" class="map-panel--content resturants-content--1 hidden"> food
+                        info</div>
+                    <div id="hotels-panel--content" class="map-panel--content hotels-content--1 hidden">Hotel Info</div>
                 </div>
             </div>
             <div id="map" class="map"></div>
