@@ -444,7 +444,13 @@ button:hover {
 .image-gallery--container {
   z-index: 5;
 }
-/* ----- PAGEINATION -----  */
+/* ---- INNER PANEL HEADER ---- */
+.inner-panel--header {
+  font-size: 1.2rem;
+  text-align: center;
+  padding-bottom: 1.5rem;
+}
+/* ----- PAGINATION -----  */
 .pagination {
   justify-content: center;
   align-items: center;
@@ -463,45 +469,48 @@ button:hover {
   background-color: #def9ff;
   color: black;
 }
-/* ---- ATTRACTIONS PANEL  ---- */
-.attractions-content--1 {
+/* ---- CARDS INSIDE PANEL  ---- */
+.panel-loaded {
+  min-height: 55rem;
+}
+.panel-content--1 {
   justify-content: center;
   flex-direction: column;
 }
-.attractions-header {
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 0.5rem;
-}
-.attractions-cards {
+.panel-cards {
   gap: 1rem;
   width: 100%;
   font-size: 1.2rem;
   justify-content: start;
   margin-bottom: 1rem;
+  min-height: 8rem;
 }
-.attractions-cards:hover {
+.panel-cards:hover {
   cursor: pointer;
   box-shadow: 0px 0px 10px -7px black;
 }
-.attractions-info--container {
+.panel-info--container {
   flex-direction: column;
   gap: 1.5rem;
 }
-.attractions-photo img {
-  width: 12rem;
+.panel-photo img {
+  width: 5rem;
 }
-/* .attractions-photo img:hover {
+/* .panel-photo img:hover {
   box-shadow: 1px 1px 5px -2px #00d9ff;
 } */
-.attractions-info--2 {
-  align-items: center;
-  justify-content: center;
+.panel-info--1 address {
+  margin: .5rem 0
 }
-.attractions-info--2 :hover {
+.panel-info--2 {
+  align-items: center;
+  justify-content: start;
+  margin-top: 1rem;
+}
+.panel-info--2 :hover {
   color: #00d9ff;
 }
-.attractions-info--2 a {
+.panel-info--2 a {
   text-decoration: none;
   color: #000;
   margin: 0.5rem;

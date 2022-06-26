@@ -10,9 +10,8 @@ class PaginationAttractionView extends View {
     this._parentElement.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-att--panel");
       if (!btn) return;
-      console.log('hi');
+      console.log("hi");
       const goToPageNum = +btn.dataset.pagenum;
-      console.log(goToPageNum);
       handler(goToPageNum);
     });
   }
@@ -27,9 +26,7 @@ class PaginationAttractionView extends View {
     if (currentPage === 1 && numPages > 1) {
       return `<div id="pagination-attraction" class="pagination flex">
                            <div class="page-number"> ${currentPage} of ${numPages} </div>
-                            <button data-pagenum="${
-                              currentPage + 1
-                            }" class="btn-att--panel"> Next </button>
+                            <button data-pagenum="${currentPage + 1 }" class="btn-att--panel"> Next </button>
                         </div>`;
     }
     // last page

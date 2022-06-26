@@ -1,7 +1,6 @@
 import { LOAD_ON_CLICK } from "../../config";
 import View from "../View";
 import sunLoader from "url:../../../imgs/sun.gif";
-import { LOAD_CURRENT_WEATHER } from "../../config";
 
 class PanelView extends View {
   _parentElement = document.getElementById("panel-selectors");
@@ -13,8 +12,8 @@ class PanelView extends View {
   _attractionsPanelSelector = document.getElementById(
     "attractions-panel--selector"
   );
-  _resturantsPanelSelector = document.getElementById(
-    "resturants-panel--selector"
+  _restaurantsPanelSelector = document.getElementById(
+    "restaurants-panel--selector"
   );
   _hotelsPanelSelector = document.getElementById("hotels-panel--selector");
   //panel content
@@ -22,8 +21,8 @@ class PanelView extends View {
   _attractionsPanelContent = document.getElementById(
     "attractions-panel--content"
   );
-  _resturantsPanelContent = document.getElementById(
-    "resturants-panel--content"
+  _restaurantsPanelContent = document.getElementById(
+    "restaurants-panel--content"
   );
   _hotelsPanelContent = document.getElementById("hotels-panel--content");
   // loader
@@ -43,11 +42,11 @@ class PanelView extends View {
             this._attractionsPanelSelector.classList.add("active-panel");
             this._attractionsPanelContent.classList.remove("hidden");
           } else this._attractionsPanelSelector.classList.remove("active-panel");
-          if (e.target === this._resturantsPanelSelector) {
+          if (e.target === this._restaurantsPanelSelector) {
             content.classList.add("hidden");
-            this._resturantsPanelSelector.classList.add("active-panel");
-            this._resturantsPanelContent.classList.remove("hidden");
-          } else (this._resturantsPanelSelector.classList.remove("active-panel"))
+            this._restaurantsPanelSelector.classList.add("active-panel");
+            this._restaurantsPanelContent.classList.remove("hidden");
+          } else (this._restaurantsPanelSelector.classList.remove("active-panel"))
           if (e.target === this._hotelsPanelSelector) {
             content.classList.add("hidden");
             this._hotelsPanelSelector.classList.add("active-panel");

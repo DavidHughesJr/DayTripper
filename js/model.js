@@ -1,5 +1,5 @@
 import { WEATHER_API_KEY } from "./config";
-import { getJSON } from "./helper";
+import { getJSON, getJSONWithOptions } from "./helper";
 import { RESULTS_PER_PANEL } from "./config";
 import noPhoto from "url:../imgs/no-photo.jpg";
 
@@ -11,9 +11,9 @@ export const state = {
   searchAttractions: {
     attractions: [],
     resultsPerPanel: RESULTS_PER_PANEL,
-    page: 3,
+    page: 1,
   },
-  searchResturants: {
+  searchRestaurants: {
     attractions: [],
     resultsPerPanel: RESULTS_PER_PANEL,
     page: 1,
@@ -152,7 +152,7 @@ export const loadAttractions = async (lat, lng) => {
         isClosed: data.is_closed,
         location: data.location_string,
         type: data.name,
-        image: data.photo?.images.thumbnail.url ?? noPhoto, 
+        image: data.photo?.images.thumbnail.url ?? noPhoto,
         address: [
           data.address_obj.street1,
           data.address_obj.city,
@@ -171,10 +171,38 @@ export const loadAttractions = async (lat, lng) => {
   }
 };
 
-// ----  PAGINATION ---- //
+// ----  ATTRACTIONS PAGINATION ---- //
 export const getAttractionsPage = (page = state.searchAttractions.page) => {
   state.searchAttractions.page = page;
   const start = (page - 1) * 3;
   const end = page * state.searchAttractions.resultsPerPanel;
   return state.searchAttractions.attractions.slice(start, end);
 };
+
+// ---  API CALL TO GET THE ATTRACTION DATA ---- //
+export const loadRestaurants = async (lat, lng) => {
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "a5e24c2040mshd8b74b4cda9ea81p1c011ajsn693d707f467c",
+        "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+      },
+    };
+  const response = await fetch(
+    // "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng?latitude=12.91285&longitude=100.87808&limit=30&currency=USD&distance=2&open_now=false&lunit=km&lang=en_US",
+    options
+  );
+    const data = await response.json()
+    const restaurantsData = data.data
+    const restaurantsCardData = restaurantsData.map((data) => {
+      console.log(data);
+    })
+
+    console.log(restaurantsCardData);
+
+  } catch (err) {
+    console.error(err);
+  }
+};
+loadRestaurants()

@@ -6,11 +6,10 @@ import hourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
 import HourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
 import WeeklyWeatherView from "./Views/weatherViews/WeeklyWeatherView";
 import AstroWeatherView from "./Views/weatherViews/AstroWeatherView";
-import PanelView from "./Views/weatherViews/PanelView";
-import HomePageView from "./Views/pageViews/HomepageView"
+import PanelView from "./Views/pageViews/PanelView";
+import HomePageView from "./Views/pageViews/HomepageView";
 import AttractionsView from "./Views/attractionViews/attractionsView";
 import AttractionsPaginationView from "./Views/attractionViews/attractionsPagination";
-
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
 
@@ -45,13 +44,13 @@ const generateMap = async (local) => {
       const data = await model.loadWeather(local[1], local[0]);
       const hourlyData = model.state.hourlyWeather;
       const weeklyData = model.state.weeklyWeather;
-      const astroData = model.state.astroWeather; 
-      // render data with related method // 
-      PanelView._showPanelSelectors()
+      const astroData = model.state.astroWeather;
+      // render data with related method //
+      PanelView._showPanelSelectors();
       CurrentWeatherView._renderLocalWeather(data);
       HourlyWeatherView._renderHourlyWeather(hourlyData);
       WeeklyWeatherView._renderWeeklyWeather(weeklyData);
-      AstroWeatherView._renderAstroWeather(astroData)
+      AstroWeatherView._renderAstroWeather(astroData);
     } catch (err) {
       console.error(err.message);
     }
@@ -64,18 +63,15 @@ const generateMap = async (local) => {
       // render pagination
       AttractionsPaginationView.render(model.state.searchAttractions);
     } catch (err) {
-      console.log(err); 
-    } 
-  }
+      console.log(err);
+    }
+  };
   const controlAttractionsPagination = (goToPage) => {
     // render more or past results
-    console.log(model.getAttractionsPage(goToPage));
-    console.log(goToPage);
     AttractionsView._renderAttractions(model.getAttractionsPage(goToPage));
     // render pagination
     AttractionsPaginationView.render(model.state.searchAttractions);
-   
-  }
+  };
   // Controls all information that will be displayed on a map click //
   const controlInformationOnMapClick = async () => {
     try {
@@ -87,10 +83,10 @@ const generateMap = async (local) => {
         const hourlyData = model.state.hourlyWeather;
         const weeklyData = model.state.weeklyWeather;
         const astroData = model.state.astroWeather;
-        
-        // render a loader 
-       PanelView.clearForcast()
-        // load information again on map click // 
+
+        // render a loader
+        PanelView.clearForcast();
+        // load information again on map click //
         CurrentWeatherView.render(currentData);
         HourlyWeatherView._renderHourlyWeather(hourlyData);
         WeeklyWeatherView._renderWeeklyWeather(weeklyData);
@@ -105,9 +101,8 @@ const generateMap = async (local) => {
     controlExtentions(); // controls all extentions connected to the map
     CurrentWeatherView.addHandlerRender(controlLocalWeather);
     CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
-    AttractionsView.addHandlerRender(controlLocalAttractions);
-    AttractionsPaginationView.addHandlerClick(controlAttractionsPagination)
+    // AttractionsView.addHandlerRender(controlLocalAttractions);
+    // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
   };
   initMap();
 };
-

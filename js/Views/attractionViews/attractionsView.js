@@ -30,9 +30,8 @@ class AttractionsView extends View {
                 <img src="${data.image}"
                     alt="attractions photo">
             </div>
-            <div class="attractions-info--container flex">
+            <div class="attractions-info--container">
                 <div class="attractions-info--1">
-                  <div><span> ${data.location} </span></div>
                     <div><span> ${data.type} </span></div>
                     <div><span>
                             <Address> ${data.address.join(", ")} </Address>
