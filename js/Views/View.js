@@ -1,8 +1,8 @@
 import sunLoader from "url:../../imgs/sun.gif";
-import { LOAD_CURRENT_WEATHER } from "../config";
+import { LOAD_CURRENT_PANEL } from "../config";
 
 export default class View {
-  _data; 
+  _data;
 
   render(data) {
     this._data = data;
@@ -48,7 +48,7 @@ export default class View {
         }
       });
     };
-    setTimeout(loadData, LOAD_CURRENT_WEATHER);
+    setTimeout(loadData, LOAD_CURRENT_PANEL);
   }
   renderSunLoader() {
     const markup = `

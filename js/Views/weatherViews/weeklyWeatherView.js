@@ -1,19 +1,17 @@
 import View from "../View";
 import rain from "url:../../../imgs/raindrop.png";
-import { LOAD_CURRENT_WEATHER } from "../../config";
+import { LOAD_CURRENT_PANEL } from "../../config";
 import rain from "url:../../../imgs/raindrop.png";
 import moment from "moment";
-
 
 class WeeklyWeatherView extends View {
   _parentElement = document.getElementById("weekly-forcast-container");
   _childElement = document.getElementById("weekly-forcast");
 
-
   _renderWeeklyWeather(data) {
     const loadData = () => {
       this._data = data;
-      this._clear()
+      this._clear();
       const renderWeekly = this._data
         .map((weekly) => {
           const newWeekly = this._genderateMarkup(weekly);
@@ -22,7 +20,7 @@ class WeeklyWeatherView extends View {
         .join("");
       this._parentElement.insertAdjacentHTML("afterbegin", renderWeekly);
     };
-     setTimeout(loadData, LOAD_CURRENT_WEATHER);
+    setTimeout(loadData, LOAD_CURRENT_PANEL);
   }
 
   _genderateMarkup(data) {
@@ -34,7 +32,9 @@ class WeeklyWeatherView extends View {
         <img src="${data.icon}"
             alt="Current weather chance image">
         <div class="rain-chance flex">
-                <div> <span> <img src="${rain}" alt="rain drop image"> ${data.rainChance}%</span> </div>
+                <div> <span> <img src="${rain}" alt="rain drop image"> ${
+      data.rainChance
+    }%</span> </div>
         </div>
         <div>
         </div>
@@ -47,5 +47,4 @@ class WeeklyWeatherView extends View {
   }
 }
 
-
-export default new WeeklyWeatherView()
+export default new WeeklyWeatherView();

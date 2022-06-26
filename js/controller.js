@@ -10,6 +10,10 @@ import PanelView from "./Views/pageViews/PanelView";
 import HomePageView from "./Views/pageViews/HomepageView";
 import AttractionsView from "./Views/attractionViews/attractionsView";
 import AttractionsPaginationView from "./Views/attractionViews/attractionsPagination";
+import RestaurantsView from "./Views/restaurantsViews/restaurantsView";
+import RestaurantsPaginationView from "./Views/restaurantsViews/restaurantsPaginationView";
+import HotelsView from "./Views/hotelView/hotelsView";
+import HotelsPaginationView from "./Views/hotelView/hotelsPaginationView";
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
 
@@ -57,9 +61,9 @@ const generateMap = async (local) => {
   };
   const controlLocalAttractions = async () => {
     try {
-      const data = await model.loadAttractions(local[1], local[0]);
+      await model.loadAttractions(local[1], local[0]);
 
-      AttractionsView._renderAttractions(model.getAttractionsPage(1));
+      AttractionsView._renderAttractions(model.getAttractionsPage());
       // render pagination
       AttractionsPaginationView.render(model.state.searchAttractions);
     } catch (err) {
@@ -72,10 +76,47 @@ const generateMap = async (local) => {
     // render pagination
     AttractionsPaginationView.render(model.state.searchAttractions);
   };
+  const controlLocalRestaurants = async () => {
+    try {
+      await model.loadRestaurants(local[1], local[0]);
+      RestaurantsView._renderRestaurants(model.getResturantsPage());
+      RestaurantsPaginationView.render(model.state.searchRestaurants);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const controlRestaurantsPagination = (goToPage) => {
+    RestaurantsView._renderRestaurants(model.getResturantsPage(goToPage));
+    RestaurantsPaginationView.render(model.state.searchHotels);
+  };
+  const controlLocalHotels = async () => {
+    try {
+      const dataForSearchedLocation = await model.loadWeather(
+        local[1],
+        local[0]
+      );
+      const city = dataForSearchedLocation.currentCity;
+      const region = dataForSearchedLocation.currentState;
+
+      await model.loadHotels(city, region);
+
+      HotelsView._renderHotels(model.getHotelsPage());
+
+      HotelsPaginationView.render(model.state.searchHotels);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const controlHotelsPagination = (goToPage) => {
+    HotelsView._renderHotels(model.getHotelsPage(goToPage));
+    HotelsPaginationView.render(model.state.searchHotels);
+  };
   // Controls all information that will be displayed on a map click //
   const controlInformationOnMapClick = async () => {
+    PanelView.clearPanel();
     try {
       map.on("click", async (event) => {
+        // render a loader
         const currentData = await model.loadWeather(
           event.lngLat.lat,
           event.lngLat.lng
@@ -84,13 +125,22 @@ const generateMap = async (local) => {
         const weeklyData = model.state.weeklyWeather;
         const astroData = model.state.astroWeather;
 
-        // render a loader
-        PanelView.clearForcast();
+        // data needed for att restaurants and hotels
+        const city = currentData.currentCity;
+        const region = currentData.currentState;
+        await model.loadHotels(city, region);
+
         // load information again on map click //
         CurrentWeatherView.render(currentData);
         HourlyWeatherView._renderHourlyWeather(hourlyData);
         WeeklyWeatherView._renderWeeklyWeather(weeklyData);
         AstroWeatherView._renderAstroWeather(astroData);
+        AttractionsView._renderAttractions(model.getHotelsPage(1));
+        AttractionsPaginationView.render(model.state.searchHotels);
+        RestaurantsView._renderRestaurants(model.getHotelsPage(1));
+        RestaurantsPaginationView.render(model.state.searchHotels);
+        HotelsView._renderHotels(model.getHotelsPage(1));
+        HotelsPaginationView.render(model.state.searchHotels);
       });
     } catch (error) {
       console.error(err);
@@ -101,8 +151,12 @@ const generateMap = async (local) => {
     controlExtentions(); // controls all extentions connected to the map
     CurrentWeatherView.addHandlerRender(controlLocalWeather);
     CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
-    // AttractionsView.addHandlerRender(controlLocalAttractions);
-    // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
+    // // AttractionsView.addHandlerRender(controlLocalAttractions);
+    // // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
+    // // RestaurantsView.addHandlerRender(controlLocalRestaurants)
+    // // RestaurantsPaginationView.addHandlerClick(controlRestaurantsPagination)
+    // HotelsView.addHandlerRender(controlLocalHotels);
+    // HotelsPaginationView.addHandlerClick(controlHotelsPagination);
   };
   initMap();
 };

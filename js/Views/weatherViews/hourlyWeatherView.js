@@ -1,6 +1,6 @@
 import View from "../View";
 import rain from "url:../../../imgs/raindrop.png";
-import { LOAD_CURRENT_WEATHER } from "../../config";
+import { LOAD_CURRENT_PANEL } from "../../config";
 import moment from "moment";
 
 class HourlyWeatherView extends View {
@@ -8,6 +8,7 @@ class HourlyWeatherView extends View {
   _parentElement = document.getElementById("hourly-panel");
   _childElement = document.getElementById("hourly-panel--content");
   _sliderElements = document.querySelectorAll(".hourly-chart");
+  _hourlyContainer = document.querySelector('.hourly-slider--container')
 
   _renderHourlyWeather(data) {
     const loadData = () => {
@@ -28,6 +29,9 @@ class HourlyWeatherView extends View {
         })
         .join("");
       this._childElement.insertAdjacentHTML("afterbegin", renderHourly);
+       this._childElement.style.position = "absolute";
+        this._childElement.style.position = "absolute";
+        this._hourlyContainer.style.justifyContent = "center";
       // toggle between fahre
       this._togggleBetweenFahrenAndCelsuis();
       // create grabbing slider affect to hourly content //
@@ -66,7 +70,7 @@ class HourlyWeatherView extends View {
         }
       };
     };
-    setTimeout(loadData, LOAD_CURRENT_WEATHER);
+    setTimeout(loadData, LOAD_CURRENT_PANEL);
   }
   _generateMarkup(data) {
     return ` <div class="hourly-chart flex">

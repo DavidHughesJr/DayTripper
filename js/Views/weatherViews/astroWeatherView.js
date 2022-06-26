@@ -2,7 +2,7 @@ import View from "../View";
 import rain from "url:../../../imgs/raindrop.png";
 import sun from "url:../../../imgs/sun-uv.png";
 import wind from "url:../../../imgs/wind.png";
-import { LOAD_CURRENT_WEATHER } from "../../config";
+import { LOAD_CURRENT_PANEL } from "../../config";
 
 class AstroWeatherView extends View {
   _parentElement = document.getElementById("astro-container");
@@ -14,7 +14,7 @@ class AstroWeatherView extends View {
       const html = this._generateMarkup();
       this._parentElement.insertAdjacentHTML("afterbegin", html);
     };
-    setTimeout(loadData, LOAD_CURRENT_WEATHER);
+    setTimeout(loadData, LOAD_CURRENT_PANEL);
   }
   _generateMarkup() {
     return `
@@ -57,4 +57,4 @@ class AstroWeatherView extends View {
   }
 }
 
-export default new AstroWeatherView()
+export default new AstroWeatherView();

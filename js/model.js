@@ -14,12 +14,12 @@ export const state = {
     page: 1,
   },
   searchRestaurants: {
-    attractions: [],
+    restaurants: [],
     resultsPerPanel: RESULTS_PER_PANEL,
     page: 1,
   },
   searchHotels: {
-    attractions: [],
+    hotels: [],
     resultsPerPanel: RESULTS_PER_PANEL,
     page: 1,
   },
@@ -151,7 +151,7 @@ export const loadAttractions = async (lat, lng) => {
         companyName: data.parent_display_name,
         isClosed: data.is_closed,
         location: data.location_string,
-        type: data.name,
+        name: data.name,
         image: data.photo?.images.thumbnail.url ?? noPhoto,
         address: [
           data.address_obj.street1,
@@ -160,7 +160,7 @@ export const loadAttractions = async (lat, lng) => {
           data.address_obj.postalcode,
           data.address_obj.country,
         ],
-        websiteUrl: data.web_url,
+          tripAdvisorUrl: data.web_url? data.web_url : `https://www.tripadvisor.com/Search?q=${data.name}&search`,
       };
       return attractions;
     });
@@ -190,19 +190,90 @@ export const loadRestaurants = async (lat, lng) => {
       },
     };
   const response = await fetch(
-    // "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng?latitude=12.91285&longitude=100.87808&limit=30&currency=USD&distance=2&open_now=false&lunit=km&lang=en_US",
+    `https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng?latitude=${lat}&longitude=${lng}&limit=30&currency=USD&distance=2&open_now=false&lunit=km&lang=en_US`,
     options
   );
     const data = await response.json()
     const restaurantsData = data.data
     const restaurantsCardData = restaurantsData.map((data) => {
-      console.log(data);
+      const restaurants = {
+        companyName: data.parent_display_name,
+        isClosed: data.is_closed,
+        location: data.location_string,
+        name: data.name,
+        image: data.photo?.images.thumbnail.url ?? noPhoto,
+        address: data.address, 
+        tripAdvisorUrl: data.web_url? data.web_url : `https://www.tripadvisor.com/Search?q=${data.name}&search`,
+      }
+      return restaurants
     })
-
-    console.log(restaurantsCardData);
-
+    state.searchRestaurants.restaurants = restaurantsCardData
+    return state.searchRestaurants.restaurants
   } catch (err) {
     console.error(err);
   }
 };
-loadRestaurants()
+// ----- RESTAURANTS PAGINATION ----- //
+export const getResturantsPage = (page = state.searchAttractions.page) => {
+  state.searchRestaurants.page = page
+
+  const start = (page - 1) * 3
+  const end = page * state.searchRestaurants.resultsPerPanel
+  return state.searchRestaurants.restaurants.slice(start, end)
+}
+
+// ---- API CALL TO GET THE HOTEL DATA ---- // 
+export const loadHotels = async (city, region) => {
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "39a39ba582mshd2d1d2d0df966aep14da76jsnd33c9507353b",
+        "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+      },
+    };
+    // weather api is used to generate the name & region for the search api
+    const responseSearch = await fetch(
+      `https://travel-advisor.p.rapidapi.com/locations/search?query=${city}%20${region}&limit=30&offset=0&units=km&location_id=1&currency=USD&sort=relevance&lang=en_US`,
+      options,
+    );
+    // searched location is then used to get the info for the location id
+    const dataSearch = await responseSearch.json();
+    const searchedLocation = dataSearch.data[0].result_object.location_id
+    // look up hotel by the seached location
+    const responseHotels = await fetch(
+      `https://travel-advisor.p.rapidapi.com/hotels/list?location_id=${searchedLocation}&adults=1&rooms=1&nights=2&offset=0&currency=USD&order=asc&limit=30&sort=recommended&lang=en_US`,
+      options
+    );
+
+    // search data is sued to get the location for each hotel
+    const dataHotels = await responseHotels.json();
+    const hotelsData = dataHotels.data;
+    const hotelsCardData = await hotelsData.filter(data => data.name).map((data) => {
+      const hotels = {
+        name: data.name,
+        location: data.location_string,
+        image: data.photo?.images.thumbnail.url ?? noPhoto,
+        price: data.price? data.price: 'Price Not Available',
+        rating: data.rating? data.rating: 'Price Not Available',
+        ranking: data.ranking? data.ranking: 'Price Not Available',
+        tripAdvisorUrl: data.business_listings?.mobile_contacts[0]?.value? data.business_listings.mobile_contacts : `https://www.tripadvisor.com/Search?q=${data.name}&search`
+      };
+      return hotels;
+    });
+    state.searchHotels.hotels = hotelsCardData;
+    return state.searchHotels.hotels
+  } catch (err) {
+    console.error(err);
+  }
+}; 
+
+// ----- HOTELS    PAGINATION ----- //
+export const getHotelsPage = (page = state.searchHotels.page) => {
+  state.searchHotels.page = page;
+
+  const start = (page - 1) * state.searchHotels.resultsPerPanel;
+  const end = page * state.searchHotels.resultsPerPanel;
+  return state.searchHotels.hotels.slice(start, end);
+};
+

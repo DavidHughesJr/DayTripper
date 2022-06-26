@@ -1,27 +1,25 @@
-import View from "../View";
 import { LOAD_CURRENT_PANEL } from "../../config";
+import View from "../View";
 
-class AttractionsView extends View {
-  _data;
-  _parentElement = document.getElementById("attractions-panel--content");
-  _childElement = document.getElementById("attractions");
-  _nextBtn = document.querySelector(".att-next-button");
-  _previousBtn = document.querySelector(".att-previous-button");
+class RestaurantsView extends View {
+  _childElement = document.getElementById("restaurants");
 
-  _renderAttractions(data) {
+  _renderRestaurants(data) {
+    this._data = data;
+    this._clearChild();
+    console.log(data);
     const loadData = () => {
-      this._clearChild();
-      this._data = data;
-      const renderAttractions = this._data
-        .map((data) => {
-          const attractionsCard = this._generateMarkup(data);
-          return attractionsCard;
-        })
-        .join("");
-      this._childElement.insertAdjacentHTML("afterbegin", renderAttractions);
+      const renderRestaurants = this._data.map((data) => {
+        data.isClosed ? "Open" : "Closed";
+        const restaurantCard = this._generateMarkup(data);
+
+        return restaurantCard;
+      });
+      this._childElement.insertAdjacentHTML("afterbegin", renderRestaurants);
     };
     setTimeout(loadData, LOAD_CURRENT_PANEL);
   }
+
   _generateMarkup(data) {
     return `<div class="panel-content--2">
                 <div class="panel-cards flex">
@@ -32,6 +30,8 @@ class AttractionsView extends View {
                     <div class="panel-info--container flex">
                         <div class="panel-info--1">
                             <div><span> ${data.name} </span></div>
+                             <div><span> ${data.rating} out of 5 </span></div>
+                             <div> <span> ${data.price} </span> </div>
                             <div><span>
                                     <Address> ${data.location} </Address>
                                 </span></div>
@@ -52,4 +52,4 @@ class AttractionsView extends View {
   }
 }
 
-export default new AttractionsView();
+export default new RestaurantsView();

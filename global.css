@@ -83,24 +83,6 @@ button:hover {
   background-color: #dcf9ff !important;
   color: #2c3233 !important;
 }
-.loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #dcf9ff;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /* ----- HEADER ---- */
 .header {
   display: flex;
@@ -433,6 +415,7 @@ button:hover {
 .loader-panel--container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .loader-panel--container img {
   width: 8rem;
@@ -491,7 +474,7 @@ button:hover {
 }
 .panel-info--container {
   flex-direction: column;
-  gap: 1.5rem;
+  gap: .5rem;
 }
 .panel-photo img {
   width: 5rem;

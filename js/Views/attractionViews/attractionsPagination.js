@@ -3,14 +3,12 @@ import View from "../View";
 
 class PaginationAttractionView extends View {
   _parentElement = document.getElementById("pagination-attraction");
-  _nextBtn = document.querySelector(".att-next-button");
-  _previousBtn = document.querySelector(".att-previous-button");
+
 
   addHandlerClick(handler) {
     this._parentElement.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-att--panel");
       if (!btn) return;
-      console.log("hi");
       const goToPageNum = +btn.dataset.pagenum;
       handler(goToPageNum);
     });
