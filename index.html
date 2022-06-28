@@ -22,11 +22,11 @@
         <div>
             <h3>Day tripper</h3>
         </div>
-        <!-- <img class="logo" alt="Day Tripper Logo" src="imgs/Subheadng.png"> -->
         <nav class="nav-bar">
             <ul class="nav-list">
                 <li><a href="#"> Home </a></li>
-                <li><a href="#"> App </a></li>
+                <li><a href="#"> Saves </a></li>
+                <li><a href="#"> Map </a></li>
                 <li class="cta-btn"><a href="#"> How It Works </a></li>
             </ul>
         </nav>
@@ -39,11 +39,93 @@
                 <h3>Await You</h3>
             </div>
             <div class="hero-content--2">
-                <button id='start-btn--1' class="start-btn--1"> Start</button>
+                <button id='start-btn--1' class="btn"> Start</button>
             </div>
         </div>
     </section>
-    <section class="map-section--1">
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-content--1 flex">
+                <h2> What We Provide </h2>
+                <p> TripMeNow is a tool with the purpose of helping you in your trip planning process with a simple
+                    click. <br>
+                    The app gives you your current location details which include; weather, attractions, restaurants,
+                    and hotels! <br>
+                    Also with a simple click you can load information from anywhere on the map!
+                </p>
+            </div>
+            <div class="info-content--2 flex">
+                <div class="info-card flex">
+                    <div class="card-logo flex">
+                        <img src="imgs/weatherCloud.png" alt="card logo">
+                    </div>
+                    <div class="card-info">
+                        <h3> Weather Forcast </h3>
+                        <p> Stay up to date with current Weather. Get the current day's hourly weather report. Switch
+                            between fahrenheit a celsius. Look at the 3 day forcast. As well as receive
+                            uv, wind, sunrise, sunset, and humidity information! </p>
+                    </div>
+                </div>
+                <div class="info-card flex">
+                    <div class="card-logo flex">
+                        <img src="imgs/hotelsAtt.png" alt="card logo">
+                    </div>
+                    <div class="card-info">
+                        <h3> Attractions Restaurants & Hotels </h3>
+                        <p> Stay up to date with current Weather. Get the current day's hourly weather report. Switch
+                            between fahrenheit a celsius. Look at the 3 day forcast. As well as receive
+                            uv, wind, sunrise, sunset, and humidity information! </p>
+                    </div>
+                </div>
+                <div class="info-card flex">
+                    <div class="card-logo flex">
+                        <img src="imgs/onelick.png" alt="card logo">
+                    </div>
+                    <div class="card-info">
+                        <h3> One Click Feature </h3>
+                        <p> Stay up to date with current Weather. Get the current day's hourly weather report. Switch
+                            between fahrenheit a celsius. Look at the 3 day forcast. As well as receive
+                            uv, wind, sunrise, sunset, and humidity information! </p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-btn flex">
+                <button class="btn">
+                    See Map
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="tools-section">
+        <div class="tools-container flex">
+            <div class="tools-content--1 flex">
+                <h3> Information Technology Provided By</h3>
+                <div class="tools-logos flex">
+                    <img class="tool-img" src="imgs/weatherApi.png" alt="tools used app ">
+                    <img class="tool-img" src="imgs/mapbox.png" alt="tools used app ">
+                    <img class="tool-img" src="imgs/ApiDojo.png" alt="tools used app ">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div>
+
+    </div>
+    <footer>
+        <ul class="nav-list footer-nav nav-list flex">
+              <nav class="nav-bar">
+                  <ul class="nav-list">
+                      <li><a href="#"> Home </a></li>
+                      <li><a href="#"> Saves </a></li>
+                      <li><a href="#"> Map </a></li>
+                      <li> <a href="#"> How It Works </a></li>
+                  </ul>
+        </ul>
+        <div class="copyright">
+            <span> @Copyright 2022 DavidHughesJr </span>
+        </div>
+    </footer>
+    <section class="map-section--1 hidden">
         <div id="map-1" class="map-container flex">
             <div class="panel">
                 <!-- <div id="render-icons--center">
@@ -171,7 +253,7 @@
                             <span> Please See Website For More information </span>
                         </div>
                         <div id="attractions" class="panel-loaded clear-panel--click">
-                            <div class="panel-content--2">
+                            <!-- <div class="panel-content--2">
                                 <div class="panel-cards flex">
                                     <div class="panel-photo">
                                         <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/07/fd/20/caption.jpg"
@@ -191,7 +273,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div id="pagination-attraction" class="pagination flex clear-panel--click">
                             <button class="btn-att--panel"> Previous </button>
@@ -204,7 +286,7 @@
                             <span> Please See Website For More information </span>
                         </div>
                         <div id="restaurants" class="panel-loaded clear-panel--click">
-                            <div class="panel-content--2">
+                            <!-- <div class="panel-content--2">
                                 <div class="panel-cards flex">
                                     <div class="panel-photo">
                                         <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/07/fd/20/caption.jpg"
@@ -224,7 +306,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div id="pagination-restaurant" class="pagination clear-panel--click flex">
                             <button class="btn-rest--panel "> Previous </button>
@@ -237,7 +319,7 @@
                             <span> Please See Website For More information </span>
                         </div>
                         <div id="hotels" class="panel-loaded clear-panel--click">
-                            <div class="panel-content--2">
+                            <!-- <div class="panel-content--2">
                                 <div class="panel-cards flex">
                                     <div class="panel-photo">
                                         <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/07/fd/20/caption.jpg"
@@ -259,7 +341,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div id="pagination-hotel" class="pagination flex">
                             <button class="btn-hotel--panel "> Previous </button>
