@@ -136,7 +136,7 @@ button:hover {
 }
 .nav-list a:active,
 .nav-list a:hover {
-  color: #849599;
+  color: #00d9ff;
 }
 .cta-btn a:link,
 .cta-btn a:visited {
@@ -248,9 +248,13 @@ button:hover {
   font-size: 1.5rem;
   line-height: 2.5rem;
 }
-.info-btn {
+.info-btn--container {
   justify-content: center;
   padding: 5rem;
+}
+.info-btn {
+  width: auto;
+  padding: 1rem;
 }
 /* ----- TOOL SECTION ----- */
 .tools-container {
@@ -275,7 +279,7 @@ button:hover {
   width: 40rem;
 }
 .tool-img {
-  width: 10rem;
+  width: 15rem;
   padding: 2rem;
 }
 /* FOOTER   */
@@ -598,4 +602,32 @@ footer {
   text-decoration: none;
   color: #000;
   margin: 0.5rem;
+}
+
+/* --- SAVES CSS --- */
+.saves-section {
+  font-size: 1.5rem;
+  height: 100vh;
+}
+.saves-section h2 {
+  font-size: 3rem;
+  text-align: center;
+  padding: 3rem;
+}
+.saves-content {
+  padding: 10rem;
+}
+  /* HOW TO CSS  */
+.how-to--section {
+  font-size: 1.5rem;
+  height: 100vh;
+}
+.how-to--section h2 {
+  font-size: 3rem;
+  text-align: center;
+  padding: 3rem;
+}
+.how-to--content {
+  font-size: 1.5rem;
+  padding: 10rem;
 }
