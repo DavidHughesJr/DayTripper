@@ -42,8 +42,9 @@ class RestaurantsView extends View {
                         <div class="panel-info--2 flex">
                             <div> <span> <a href="${
                               data.tripAdvisorUrl
-                            }"> More Info 🌐 </a> </span> </div>
-                            <div> <span> Save ❤ </span> </div>
+                            }"> <button> More Info 🌐 </button> </a> </span> </div>
+                            <div> <button class="save-button">  Save ❤  </button> </div>
+                        </div>
                         </div>
                     </div>
                 </div>

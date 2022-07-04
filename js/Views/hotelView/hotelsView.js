@@ -31,12 +31,18 @@ class HotelsView extends View {
                             <div><span>
                                     <Address> ${data.location} </Address>
                                 </span></div>
-                            <div> <span> Price: ${data.price} </span> <span> Rating: ${data.rating.replace('.0', '')}/5 Stars </span> </div>
+                            <div> <span> Price: ${
+                              data.price
+                            } </span> <span> Rating: ${data.rating.replace(".0","")}/5 Stars </span> </div>
                         </div>
                         <div> <span> ${data.ranking} </span></div>
                         <div class="panel-info--2 flex">
-                            <div> <span> <a href="${data.tripAdvisorUrl}"> More Info 🌐 </a> </span> </div>
-                            <div> <span> Save ❤ </span> </div>
+                            <div class="panel-info--2 flex">
+                            <div> <span> <a href="${
+                              data.tripAdvisorUrl
+                            }"> <button> More Info 🌐 </button> </a> </span> </div>
+                            <div> <button class="save-button">  Save ❤  </button> </div>
+                        </div>
                         </div>
                     </div>
                 </div>

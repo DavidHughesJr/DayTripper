@@ -4,7 +4,6 @@ import View from "../View";
 class PaginationAttractionView extends View {
   _parentElement = document.getElementById("pagination-attraction");
 
-
   addHandlerClick(handler) {
     this._parentElement.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-att--panel");
@@ -15,6 +14,12 @@ class PaginationAttractionView extends View {
   }
 
   _generateMarkup() {
+    const map = document.getElementById("map");
+    map.addEventListener("click", () => {
+      let currentPage = 1;
+      numPages = Math.ceil(this._data.hotels.length / RESULTS_PER_PANEL);
+    });
+    console.log(this._data.attractions.length);
     const numPages = Math.ceil(
       this._data.attractions.length / RESULTS_PER_PANEL
     );
@@ -24,7 +29,9 @@ class PaginationAttractionView extends View {
     if (currentPage === 1 && numPages > 1) {
       return `<div id="pagination-attraction" class="pagination flex">
                            <div class="page-number"> ${currentPage} of ${numPages} </div>
-                            <button data-pagenum="${currentPage + 1 }" class="btn-att--panel"> Next </button>
+                            <button data-pagenum="${
+                              currentPage + 1
+                            }" class="btn-att--panel"> Next </button>
                         </div>`;
     }
     // last page
@@ -49,6 +56,7 @@ class PaginationAttractionView extends View {
                         </div>`;
     }
     // only 1 page
+    if (map.clicked) currentPage = 1;
     return `<div id="pagination-attraction" class="pagination flex">
                             <div class="page-number"> ${currentPage} of ${numPages} </div>
                         </div>`;

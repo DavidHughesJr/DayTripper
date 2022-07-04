@@ -14,6 +14,8 @@ import RestaurantsView from "./Views/restaurantsViews/restaurantsView";
 import RestaurantsPaginationView from "./Views/restaurantsViews/restaurantsPaginationView";
 import HotelsView from "./Views/hotelView/hotelsView";
 import HotelsPaginationView from "./Views/hotelView/hotelsPaginationView";
+import SavesView from "./Views/pageViews/savesView";
+import savesView from "./Views/pageViews/savesView";
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
 
@@ -136,9 +138,9 @@ const generateMap = async (local) => {
         WeeklyWeatherView._renderWeeklyWeather(weeklyData);
         AstroWeatherView._renderAstroWeather(astroData);
         AttractionsView._renderAttractions(model.getHotelsPage(1));
-        AttractionsPaginationView.render(model.state.searchHotels);
+        AttractionsPaginationView.render(model.state.searchAttractions);
         RestaurantsView._renderRestaurants(model.getHotelsPage(1));
-        RestaurantsPaginationView.render(model.state.searchHotels);
+        RestaurantsPaginationView.render(model.state.searchRestaurants);
         HotelsView._renderHotels(model.getHotelsPage(1));
         HotelsPaginationView.render(model.state.searchHotels);
       });
@@ -146,15 +148,27 @@ const generateMap = async (local) => {
       console.error(err);
     }
   };
+  const controlAddToSaves = () => {
+    const item = document.querySelectorAll('.saves-content')
+    console.log(item);
+    model.addToSaved(item)
+    AttractionsView.addToSavesContainer();
+  };
+  const controlDeleteSaves = () => {
+    SavesView.deleteSaves();
+    savesView.deleteSavesBtn()
+  };
   // controls all information that will be displayed on current location //
   const initMap = async () => {
     controlExtentions(); // controls all extentions connected to the map
     CurrentWeatherView.addHandlerRender(controlLocalWeather);
     CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
-    // // AttractionsView.addHandlerRender(controlLocalAttractions);
-    // // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
-    // // RestaurantsView.addHandlerRender(controlLocalRestaurants)
-    // // RestaurantsPaginationView.addHandlerClick(controlRestaurantsPagination)
+    // AttractionsView.addHandlerRender(controlLocalAttractions);
+    // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
+    // AttractionsView.addToSavesContainer(controlAddToSaves);
+    // SavesView.addHandlerDeleteSaves(controlDeleteSaves)
+    // RestaurantsView.addHandlerRender(controlLocalRestaurants)
+    // RestaurantsPaginationView.addHandlerClick(controlRestaurantsPagination)
     // HotelsView.addHandlerRender(controlLocalHotels);
     // HotelsPaginationView.addHandlerClick(controlHotelsPagination);
   };

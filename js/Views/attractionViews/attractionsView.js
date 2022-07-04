@@ -22,6 +22,29 @@ class AttractionsView extends View {
     };
     setTimeout(loadData, LOAD_CURRENT_PANEL);
   }
+  addToSavesContainer() {
+    this._childElement.addEventListener("click", (e) => {
+      const btn = e.target.closest(".save-button");
+      const savesContainer = document.getElementById('saved')
+      const saves = e.target.closest(".panel-cards");
+      const savesContent = document.getElementById('saved')
+      const savesBtn = document.querySelectorAll('.save-button')
+      savesContainer.appendChild(saves.cloneNode(true))
+
+    
+
+      if (!btn) return;
+    });
+  }
+  addToSavedState(){
+      this._childElement.addEventListener("click", (e) => {
+        const btn = e.target.closest(".save-button");
+        const savesContainer = document.getElementById("saved");
+        const saves = e.target.closest(".panel-cards");
+        if (!btn) return;
+        return 
+      });
+  }
   _generateMarkup(data) {
     return `<div class="panel-content--2">
                 <div class="panel-cards flex">
@@ -43,7 +66,7 @@ class AttractionsView extends View {
                             <div> <span> <a href="${
                               data.tripAdvisorUrl
                             }"> More Info 🌐 </a> </span> </div>
-                            <div> <span> Save ❤ </span> </div>
+                            <div> <button class="save-button">  Save ❤  </button> </div>
                         </div>
                     </div>
                 </div>

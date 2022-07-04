@@ -83,7 +83,7 @@ class PanelView extends View {
   }
   renderSunLoader() {
     const markup = `
-      <div>
+      <div class="sun-loader">
         <img src="${sunLoader}" alt="loading-sun-images">
      </div>
     `;

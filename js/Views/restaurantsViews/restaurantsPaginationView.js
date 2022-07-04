@@ -4,19 +4,25 @@ import View from "../View";
 class RestaurantsPaginationView extends View {
   _parentElement = document.getElementById("pagination-restaurant");
 
- addHandlerClick(handler){
-     this._parentElement.addEventListener("click", (e) => {
-       const btn = e.target.closet(".btn-rest--panel");
-       if(!btn) return 
-       const goToPage = +btn.dataset.goToPage
-       handler(goToPage)
-     });
-}
+  addHandlerClick(handler) {
+    this._parentElement.addEventListener("click", (e) => {
+      const btn = e.target.closet(".btn-rest--panel");
+      if (!btn) return;
+      const goToPage = +btn.dataset.goToPage;
+      handler(goToPage);
+    });
+  }
   _generateMarkup() {
-    console.log(this._data);
+    const map = document.getElementById("map");
+    map.addEventListener("click", () => {
+      let currentPage = 1;
+      numPages = Math.ceil(this._data.hotels.length / RESULTS_PER_PANEL);
+      console.log(currentPage);
+    });
     const pageNum = Math.ceil(
       this._data.restaurants.length / RESULTS_PER_PANEL
     );
+
     let currentPage = this._data.page;
 
     // page 1 with more pages
@@ -52,10 +58,11 @@ class RestaurantsPaginationView extends View {
                         </div>`;
     }
     // only 1 page
+    if(map.clicked) currentPage = 1
     return `<div id="pagination-restaurant" class="pagination flex">
                             <div class="page-number"> ${currentPage} of ${pageNum} </div>
                         </div>`;
   }
 }
 
-export default new RestaurantsPaginationView()
+export default new RestaurantsPaginationView();

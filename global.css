@@ -94,6 +94,10 @@ button:hover {
 .btn:hover {
   background-color: #4d5759;
 }
+.flex-row--reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
 /* ----- HEADER ---- */
 .header {
   display: flex;
@@ -247,6 +251,8 @@ button:hover {
 .info-card p {
   font-size: 1.5rem;
   line-height: 2.5rem;
+  text-align: left;
+  padding: 1rem;
 }
 .info-btn--container {
   justify-content: center;
@@ -528,6 +534,9 @@ footer {
 .no-opacity {
   opacity: 0;
 }
+.sun-loader img {
+  width: 1rem;
+}
 /* ----- IMAGE GALLERY ----  */
 .image-gallery--container {
   z-index: 5;
@@ -596,12 +605,23 @@ footer {
   margin-top: 1rem;
 }
 .panel-info--2 :hover {
-  color: #00d9ff;
+  color: #ffffff;
 }
 .panel-info--2 a {
   text-decoration: none;
-  color: #000;
+  color: #00d9ff;
   margin: 0.5rem;
+}
+.panel-info--2 button {
+  padding: .3rem;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+.panel-info--2 button:hover {
+  background-color: #dcf9ff;
+  color: black;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* --- SAVES CSS --- */
@@ -614,20 +634,41 @@ footer {
   text-align: center;
   padding: 3rem;
 }
+.saves-section h5 {
+  padding: 1rem;
+  text-align: center;
+}
 .saves-content {
   padding: 10rem;
+}
+.saves-content button {
+  display: none;
 }
   /* HOW TO CSS  */
 .how-to--section {
   font-size: 1.5rem;
-  height: 100vh;
 }
 .how-to--section h2 {
   font-size: 3rem;
   text-align: center;
   padding: 3rem;
 }
+.how-to--examples {
+  height: fit-content
+}
 .how-to--content {
   font-size: 1.5rem;
-  padding: 10rem;
+  padding: 1rem 5rem;
+  justify-content: space-between;
+}
+.how-container {
+  line-height: 4rem;
+  width: 50%;
+  padding: 1rem;
+}
+.how-container--img {
+  width: 50%;
+}
+.how-img {
+  width: 100%
 }
