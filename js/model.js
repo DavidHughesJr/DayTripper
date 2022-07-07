@@ -136,7 +136,7 @@ export const loadAttractions = async (lat, lng) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "da2a62b283mshaf8a911de98e163p19a6a5jsn2501d3b12ffd",
+        "X-RapidAPI-Key": "eef61afd8dmshd3e45bf348b2eb9p13bdc2jsn3335b6566b8f",
         "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
       },
     };
@@ -192,7 +192,7 @@ export const loadRestaurants = async (lat, lng) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "da2a62b283mshaf8a911de98e163p19a6a5jsn2501d3b12ffd",
+        "X-RapidAPI-Key": "eef61afd8dmshd3e45bf348b2eb9p13bdc2jsn3335b6566b8f",
         "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
       },
     };
@@ -237,7 +237,7 @@ export const loadHotels = async (city, region) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "da2a62b283mshaf8a911de98e163p19a6a5jsn2501d3b12ffd",
+        "X-RapidAPI-Key": "eef61afd8dmshd3e45bf348b2eb9p13bdc2jsn3335b6566b8f",
         "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
       },
     };

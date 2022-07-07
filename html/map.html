@@ -31,6 +31,25 @@
 </header>
 
 <body>
+     <div id="confirm-save" class="confirm hidden">
+         <div class="confirm-question">
+             <span> Save Item? </span>
+         </div>
+         <div class="confirm-btn--container">
+             <button id="no-save--btn" class="confirm-btn"> No </button>
+             <button id="yes-save--btn" class="confirm-btn"> Yes </button>
+         </div>
+     </div>
+       <div id="confirm-delete" class="confirm hidden">
+           <div class="confirm-question">
+               <span> Delete Item? </span>
+           </div>
+           <div class="confirm-btn--container">
+               <button id="no-delete--btn" class="confirm-btn"> No </button>
+               <button id="yes-delete--btn" class="confirm-btn"> Yes </button>
+           </div>
+       </div>
+    <div id="confirmation-overlay">
     <section class="map-section--1">
         <div id="map-1" class="map-container flex">
             <div class="panel">
@@ -82,6 +101,15 @@
                             <img src="imgs/sun.gif" alt="loading-sun-images">
                         </div> -->
                     </div>
+                    <!-- <div id="confirm-save" class="confirm hidden">
+                        <div class="confirm-question">
+                            <span> Save Item? </span>
+                        </div>
+                        <div class="confirm-btn--container">
+                            <button id="no-btn" class="confirm-btn"> No </button>
+                            <button id="yes-btn" class="confirm-btn"> Yes </button>
+                        </div>
+                    </div> -->
                     <div id="forcast-panel--content" class="map-panel--content">
                         <div id="hourly-panel" class="hourly-slider--container flex">
                             <div id="hourly-panel--content" class="hourly-content clear-panel--click">
@@ -260,23 +288,31 @@
             <div id="map" class="map"></div>
         </div>
     </section>
-    <section class="saved-items--section">
-        <div class="hidden"></div>
-    </section>
     <section class="saves-section">
         <h2> Saves </h2>
         <h5> Attention: Double click / tap to delete </h5>
-        <div id="saved" class="saves-content">
+            <h3> Saved Attractions </h3>
+        <div id="saved-attractions" class="saves-content saved-attractions-content">
+            
         </div>
+         <h3> Saved Restaurants </h3>
+         <div id="saved-restaurants" class="saves-content saved-attractions-content">
+
+         </div>
+          <h3> Saved Hotels </h3>
+          <div id="saved-hotels" class="saves-content saved-attractions-content">
+
+          </div>
     </section>
+    </div>
 </body>
 <footer>
     <ul class="nav-list footer-nav nav-list flex">
         <nav class="nav-bar">
             <ul class="nav-list">
-                  <li><a href="/index.html"> Home </a></li>
-                  <li><a href="saves.html"> Saves </a></li>
-                  <li><a href="map.html"> Map </a></li>
+                <li><a href="/index.html"> Home </a></li>
+                <li><a href="saves.html"> Saves </a></li>
+                <li><a href="map.html"> Map </a></li>
                 <li> <a href="how.html"> How It Works </a></li>
             </ul>
     </ul>

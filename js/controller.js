@@ -14,8 +14,6 @@ import RestaurantsView from "./Views/restaurantsViews/restaurantsView";
 import RestaurantsPaginationView from "./Views/restaurantsViews/restaurantsPaginationView";
 import HotelsView from "./Views/hotelView/hotelsView";
 import HotelsPaginationView from "./Views/hotelView/hotelsPaginationView";
-import SavesView from "./Views/pageViews/savesView";
-import savesView from "./Views/pageViews/savesView";
 
 mapboxgl.accessToken = `pk.eyJ1IjoiZGF2aWRodWdoZXNqciIsImEiOiJjbDN6dmw0bmQwOWw4M2lwOGp5OXJ2Z242In0.MV-26g2_0GnW_PDgaRGY_g`;
 
@@ -148,15 +146,20 @@ const generateMap = async (local) => {
       console.error(err);
     }
   };
-  const controlAddToSaves = () => {
-    const item = document.querySelectorAll('.saves-content')
-    console.log(item);
-    model.addToSaved(item)
-    AttractionsView.addToSavesContainer();
+  const controlAttractionsSaves = () => {
+    AttractionsView.showSaved();
+    AttractionsView.addToSavedAttractions();
+    AttractionsView.deleteSaves();
   };
-  const controlDeleteSaves = () => {
-    SavesView.deleteSaves();
-    savesView.deleteSavesBtn()
+  const controlRestaurantsSaves = () => {
+    RestaurantsView.showSaved();
+    RestaurantsView.addToSavedRestaurants();
+    RestaurantsView.deleteSaves();
+  };
+  const controlHotelsSaves = () => {
+    HotelsView.showSaved();
+    HotelsView.addToSavedHotels();
+    HotelsView.deleteSaves();
   };
   // controls all information that will be displayed on current location //
   const initMap = async () => {
@@ -165,12 +168,13 @@ const generateMap = async (local) => {
     CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
     // AttractionsView.addHandlerRender(controlLocalAttractions);
     // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
-    // AttractionsView.addToSavesContainer(controlAddToSaves);
-    // SavesView.addHandlerDeleteSaves(controlDeleteSaves)
-    // RestaurantsView.addHandlerRender(controlLocalRestaurants)
+    // AttractionsView.addHandlerSaves(controlAttractionsSaves);
+    // RestaurantsView.addHandlerRender(controlLocalRestaurants);
     // RestaurantsPaginationView.addHandlerClick(controlRestaurantsPagination)
+    // RestaurantsView.addHandlerSaves(controlRestaurantsSaves);
     // HotelsView.addHandlerRender(controlLocalHotels);
     // HotelsPaginationView.addHandlerClick(controlHotelsPagination);
+    // HotelsView.addHandlerSaves(controlHotelsSaves);
   };
   initMap();
 };

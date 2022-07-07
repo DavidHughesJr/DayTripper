@@ -19,7 +19,6 @@ class PaginationAttractionView extends View {
       let currentPage = 1;
       numPages = Math.ceil(this._data.hotels.length / RESULTS_PER_PANEL);
     });
-    console.log(this._data.attractions.length);
     const numPages = Math.ceil(
       this._data.attractions.length / RESULTS_PER_PANEL
     );
