@@ -8,7 +8,7 @@ class PanelView extends View {
   _tabContent = document.querySelectorAll(".map-panel--content");
   // panel selectors
   _tabSelectors = document.querySelectorAll(".button-panel--selectors");
-  _forcastPanelSelector = document.getElementById("forcast-panel--selector");
+  _forecastPanelSelector = document.getElementById("forcast-panel--selector");
   _attractionsPanelSelector = document.getElementById(
     "attractions-panel--selector"
   );
@@ -17,7 +17,7 @@ class PanelView extends View {
   );
   _hotelsPanelSelector = document.getElementById("hotels-panel--selector");
   //panel content
-  _forcastPanelContent = document.getElementById("forcast-panel--content");
+  _forecastPanelContent = document.getElementById("forcast-panel--content");
   _attractionsPanelContent = document.getElementById(
     "attractions-panel--content"
   );
@@ -36,11 +36,11 @@ class PanelView extends View {
     this._tabSelectors.forEach((tab) => {
       this._tabContent.forEach((content) => {
         tab.addEventListener("click", (e) => {
-          if (e.target === this._forcastPanelSelector) {
+          if (e.target === this._forecastPanelSelector) {
             content.classList.add("hidden");
-            this._forcastPanelSelector.classList.add("active-panel");
-            this._forcastPanelContent.classList.remove("hidden");
-          } else this._forcastPanelSelector.classList.remove("active-panel");
+            this._forecastPanelSelector.classList.add("active-panel");
+            this._forecastPanelContent.classList.remove("hidden");
+          } else this._forecastPanelSelector.classList.remove("active-panel");
           if (e.target === this._attractionsPanelSelector) {
             content.classList.add("hidden");
             this._attractionsPanelSelector.classList.add("active-panel");
@@ -66,6 +66,21 @@ class PanelView extends View {
   _showPanelSelectors() {
     this._parentElement.classList.remove("hidden");
   }
+  clearPanelOnLoad() {
+    window.addEventListener("load", () => {
+      this._panelClearer.forEach((panel) => {
+        const markup = `
+      <div class='loader-panel--container flex'>
+        <img src="${sunLoader}" alt="loading-sun-images">
+     </div>
+    `;
+        panel.innerHTML = "";
+        panel.style.position = "relative";
+        this._hourlyContainer.style.justifyContent = "center";
+        panel.insertAdjacentHTML("afterbegin", markup);
+      });
+    });
+  }
   clearPanel() {
     map.addEventListener("click", () => {
       this._panelClearer.forEach((panel) => {
@@ -75,8 +90,8 @@ class PanelView extends View {
      </div>
     `;
         panel.innerHTML = "";
-        panel.style.position = 'relative'
-        this._hourlyContainer.style.justifyContent = 'center'
+        panel.style.position = "relative";
+        this._hourlyContainer.style.justifyContent = "center";
         panel.insertAdjacentHTML("afterbegin", markup);
       });
     });

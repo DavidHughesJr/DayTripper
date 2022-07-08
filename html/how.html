@@ -21,17 +21,27 @@
         <h3>Day tripper</h3>
     </div>
     <nav class="nav-bar">
-        <ul class="nav-list">
+        <ul class="nav-list top-nav">
             <li><a href="/index.html"> Home </a></li>
-            <li><a href="saves.html"> Saves </a></li>
+             <li><a href="/html/map.html#saves-section"> Saves </a></li>
             <li><a href="map.html"> Map </a></li>
             <li class="cta-btn"><a href="how.html"> How It Works </a></li>
         </ul>
+         <div id="hamburger-icon" class="nav-hamburger">
+             <ul id="hamburger" class="nav-list--hamburger">
+                 <div class="hamburger-container hidden">
+                     <li><a href="/index.html"> Home </a></li>
+                     <li><a href="map.html#saves-section"> Saves </a></li>
+                     <li><a href="map.html"> Map </a></li>
+                     <li><a href="how.html"> How It Works </a></li>
+                 </div>
+             </ul>
+         </div>
     </nav>
 </header>
 
 <body>
-    <section class="how-to--section">
+    <section class="how-to--section sticky-nav--observer">
         <h2> How It Works </h2>
     </section>
     <section class="how-to--examples">
@@ -47,14 +57,14 @@
                 the prompt that displays to allow the webpage to generate your current location.
             </div>
         </div>
-        <div class="how-to--content flex-row--reverse">
+        <div class="how-to--content flex-row--reverse ">
             <div class="how-container--img">
                 <img class="how-img" src="/imgs/how-it-works-2.jpg" alt="map example">
             </div>
             <div class="how-container">
                 Information will be displayed at a max of 4 items. Please click next at the bottom to generate the
                 remaining items. Please be aware that all
-                listings will not a photo or link. If a link is availible please click on more information to be
+                listings will not a photo or link. If a link is available please click on more information to be
                 redirected to trip advisor for more details.
             </div>
         </div>
@@ -76,7 +86,7 @@
         <nav class="nav-bar">
             <ul class="nav-list">
                 <li><a href="/index.html"> Home </a></li>
-                <li><a href="saves.html"> Saves </a></li>
+               <li><a href="/html/map.html#saves-section"> Saves </a></li>
                 <li><a href="map.html"> Map </a></li>
                 <li> <a href="how.html"> How It Works </a></li>
             </ul>

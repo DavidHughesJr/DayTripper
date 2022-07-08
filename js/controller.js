@@ -1,4 +1,4 @@
-import mapboxgl from "mapbox-gl";
+import mapboxgl, { Marker } from "mapbox-gl";
 import * as model from "./model";
 import View from "./Views/View";
 import CurrentWeatherView from "./Views/weatherViews/CurrentWeatherView";
@@ -7,7 +7,7 @@ import HourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
 import WeeklyWeatherView from "./Views/weatherViews/WeeklyWeatherView";
 import AstroWeatherView from "./Views/weatherViews/AstroWeatherView";
 import PanelView from "./Views/pageViews/PanelView";
-import HomePageView from "./Views/pageViews/HomepageView";
+import pageView from "./Views/pageViews/pageView";
 import AttractionsView from "./Views/attractionViews/attractionsView";
 import AttractionsPaginationView from "./Views/attractionViews/attractionsPagination";
 import RestaurantsView from "./Views/restaurantsViews/restaurantsView";
@@ -37,9 +37,11 @@ const generateMap = async (local) => {
     center: local, // starting position [lng, lat]
     zoom: 9, // starting zoom
   });
-  const controlExtentions = () => {
+  const controlExtensions = () => {
     const nav = new mapboxgl.NavigationControl();
+    const localMarker = new mapboxgl.Marker({ color: "#b40219" });
     map.addControl(nav, "top-left");
+    localMarker.setLngLat(local).addTo(map);
   };
   const controlLocalWeather = async () => {
     CurrentWeatherView.renderSunLoader();
@@ -60,6 +62,7 @@ const generateMap = async (local) => {
     }
   };
   const controlLocalAttractions = async () => {
+    PanelView.clearPanelOnLoad()
     try {
       await model.loadAttractions(local[1], local[0]);
 
@@ -77,19 +80,21 @@ const generateMap = async (local) => {
     AttractionsPaginationView.render(model.state.searchAttractions);
   };
   const controlLocalRestaurants = async () => {
+    PanelView.clearPanelOnLoad()
     try {
       await model.loadRestaurants(local[1], local[0]);
-      RestaurantsView._renderRestaurants(model.getResturantsPage());
+      RestaurantsView._renderRestaurants(model.getRestaurantsPage());
       RestaurantsPaginationView.render(model.state.searchRestaurants);
     } catch (err) {
       console.error(err);
     }
   };
   const controlRestaurantsPagination = (goToPage) => {
-    RestaurantsView._renderRestaurants(model.getResturantsPage(goToPage));
+    RestaurantsView._renderRestaurants(model.getRestaurantsPage(goToPage));
     RestaurantsPaginationView.render(model.state.searchHotels);
   };
   const controlLocalHotels = async () => {
+    PanelView.clearPanelOnLoad();
     try {
       const dataForSearchedLocation = await model.loadWeather(
         local[1],
@@ -114,8 +119,12 @@ const generateMap = async (local) => {
   // Controls all information that will be displayed on a map click //
   const controlInformationOnMapClick = async () => {
     PanelView.clearPanel();
+    const clickedMarker = new mapboxgl.Marker();
     try {
       map.on("click", async (event) => {
+        // add marker
+        const coordinates = event.lngLat;
+        clickedMarker.setLngLat(coordinates).addTo(map);
         // render a loader
         const currentData = await model.loadWeather(
           event.lngLat.lat,
@@ -163,9 +172,9 @@ const generateMap = async (local) => {
   };
   // controls all information that will be displayed on current location //
   const initMap = async () => {
-    controlExtentions(); // controls all extentions connected to the map
-    CurrentWeatherView.addHandlerRender(controlLocalWeather);
-    CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
+    // controlExtensions(); // controls all extensions connected to the map
+    // CurrentWeatherView.addHandlerRender(controlLocalWeather);
+    // CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
     // AttractionsView.addHandlerRender(controlLocalAttractions);
     // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
     // AttractionsView.addHandlerSaves(controlAttractionsSaves);
@@ -178,3 +187,12 @@ const generateMap = async (local) => {
   };
   initMap();
 };
+
+const navBarFunctionality = () => {
+  pageView.toggleMobileMenu();
+  pageView.enableStickyNav();
+};
+const init = () => {
+  pageView.addHandlerEnable(navBarFunctionality);
+};
+init();

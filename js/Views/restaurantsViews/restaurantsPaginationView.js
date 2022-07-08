@@ -17,7 +17,6 @@ class RestaurantsPaginationView extends View {
     map.addEventListener("click", () => {
       let currentPage = 1;
       numPages = Math.ceil(this._data.hotels.length / RESULTS_PER_PANEL);
-      console.log(currentPage);
     });
     const pageNum = Math.ceil(
       this._data.restaurants.length / RESULTS_PER_PANEL

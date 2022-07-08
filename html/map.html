@@ -21,44 +21,54 @@
         <h3>Day tripper</h3>
     </div>
     <nav class="nav-bar">
-        <ul class="nav-list">
+        <ul class="nav-list top-nav">
             <li><a href="/index.html"> Home </a></li>
-            <li><a href="saves.html"> Saves </a></li>
+            <li><a href="#saves-section"> Saves </a></li>
             <li><a href="map.html"> Map </a></li>
             <li class="cta-btn"><a href="how.html"> How It Works </a></li>
         </ul>
+        <div id="hamburger-icon" class="nav-hamburger">
+            <ul id="hamburger" class="nav-list--hamburger">
+                <div class="hamburger-container hidden">
+                    <li><a href="/index.html"> Home </a></li>
+                    <li><a href="#saves-section"> Saves </a></li>
+                    <li><a href="map.html"> Map </a></li>
+                    <li><a href="how.html"> How It Works </a></li>
+                </div>
+            </ul>
+        </div>
     </nav>
 </header>
 
 <body>
-     <div id="confirm-save" class="confirm hidden">
-         <div class="confirm-question">
-             <span> Save Item? </span>
-         </div>
-         <div class="confirm-btn--container">
-             <button id="no-save--btn" class="confirm-btn"> No </button>
-             <button id="yes-save--btn" class="confirm-btn"> Yes </button>
-         </div>
-     </div>
-       <div id="confirm-delete" class="confirm hidden">
-           <div class="confirm-question">
-               <span> Delete Item? </span>
-           </div>
-           <div class="confirm-btn--container">
-               <button id="no-delete--btn" class="confirm-btn"> No </button>
-               <button id="yes-delete--btn" class="confirm-btn"> Yes </button>
-           </div>
-       </div>
+    <div id="confirm-save" class="confirm hidden sticky-nav--observer">
+        <div class="confirm-question">
+            <span> Save Item? </span>
+        </div>
+        <div class="confirm-btn--container">
+            <button id="no-save--btn" class="confirm-btn"> No </button>
+            <button id="yes-save--btn" class="confirm-btn"> Yes </button>
+        </div>
+    </div>
+    <div id="confirm-delete" class="confirm hidden">
+        <div class="confirm-question">
+            <span> Delete Item? </span>
+        </div>
+        <div class="confirm-btn--container">
+            <button id="no-delete--btn" class="confirm-btn"> No </button>
+            <button id="yes-delete--btn" class="confirm-btn"> Yes </button>
+        </div>
+    </div>
     <div id="confirmation-overlay">
-    <section class="map-section--1">
-        <div id="map-1" class="map-container flex">
-            <div class="panel">
-                <!-- <div id="render-icons--center">
+        <section class="map-section--1">
+            <div id="map-1" class="map-container flex">
+                <div class="panel">
+                    <!-- <div id="render-icons--center">
                       <img src="imgs/sun.gif" alt="loading-sun-images">
                   </div> -->
-                <div class="current-content--weather">
-                    <div id="current-panel">
-                        <!-- <div class="current-temp-container flex">
+                    <div class="current-content--weather">
+                        <div id="current-panel">
+                            <!-- <div class="current-temp-container flex">
                         <div id="current-temp-f class=" fahren"> <span> 98. 1</span> </div>
                         <div id="current-temp-c" class="celsius hidden"> <span> 31.7 </span> </div>
                       <button id="fahren-button" class="temp degree fahren"> °F </button> <button id="celsius-button"
@@ -84,24 +94,25 @@
                             <span> High 96.8°C Low 70.3°C</span>
                         </div>
                     </div> -->
-                    </div>
-                    <div id="panel-selectors" class="button-selection-container flex hidden">
-                        <button id="forcast-panel--selector" class="forcast-panel button-panel--selectors active-panel">
-                            Forcast </button>
-                        <button id="attractions-panel--selector" class="attractions-panel button-panel--selectors">
-                            Attractions</button>
-                        <button id="restaurants-panel--selector" class="restaurants-panel button-panel--selectors">
-                            Restaurants
-                        </button>
-                        <button id="hotels-panel--selector" class="bookings-panel button-panel--selectors"> Hotels
-                        </button>
-                    </div>
-                    <div id="loader-panel" class="loader-panel--container">
-                        <!-- <div>
+                        </div>
+                        <div id="panel-selectors" class="button-selection-container flex hidden">
+                            <button id="forcast-panel--selector"
+                                class="forcast-panel button-panel--selectors active-panel">
+                                Forcast </button>
+                            <button id="attractions-panel--selector" class="attractions-panel button-panel--selectors">
+                                Attractions</button>
+                            <button id="restaurants-panel--selector" class="restaurants-panel button-panel--selectors">
+                                Restaurants
+                            </button>
+                            <button id="hotels-panel--selector" class="bookings-panel button-panel--selectors"> Hotels
+                            </button>
+                        </div>
+                        <div id="loader-panel" class="loader-panel--container">
+                            <!-- <div>
                             <img src="imgs/sun.gif" alt="loading-sun-images">
                         </div> -->
-                    </div>
-                    <!-- <div id="confirm-save" class="confirm hidden">
+                        </div>
+                        <!-- <div id="confirm-save" class="confirm hidden">
                         <div class="confirm-question">
                             <span> Save Item? </span>
                         </div>
@@ -110,10 +121,10 @@
                             <button id="yes-btn" class="confirm-btn"> Yes </button>
                         </div>
                     </div> -->
-                    <div id="forcast-panel--content" class="map-panel--content">
-                        <div id="hourly-panel" class="hourly-slider--container flex">
-                            <div id="hourly-panel--content" class="hourly-content clear-panel--click">
-                                <!-- <div class="hourly-chart flex">
+                        <div id="forcast-panel--content" class="map-panel--content">
+                            <div id="hourly-panel" class="hourly-slider--container flex">
+                                <div id="hourly-panel--content" class="hourly-content clear-panel--click">
+                                    <!-- <div class="hourly-chart flex">
                                     <span class="hourly-chart--time"> 6PM</span>
                                     <span> <img class="hourly-weather--icon" src="imgs/night.webp"
                                             alt="hourly weather logo"></span>
@@ -123,10 +134,10 @@
                                         <img src="imgs/raindrop.png" alt="rain image"><span> 0%</span>
                                     </div>
                                 </div> -->
+                                </div>
                             </div>
-                        </div>
-                        <div id="weekly-forcast-container" class="weekly-forcast--container clear-panel--click">
-                            <!-- <div class="weekly-forcast--content flex">
+                            <div id="weekly-forecast-container" class="weekly-forcast--container clear-panel--click">
+                                <!-- <div class="weekly-forcast--content flex">
                                 <span class="weekly-forcast--day"> Today </span>
                                 <img src="//cdn.weatherapi.com/weather/64x64/day/176.png"
                                     alt="Current weather chance image">
@@ -140,9 +151,9 @@
                                     <span class="celsius hidden"> 70.3°C</span>
                                 </div>
                             </div> -->
-                        </div>
-                        <div id="astro-container" class="clear-panel--click">
-                            <!-- <div class="wind-uv--content flex">
+                            </div>
+                            <div id="astro-container" class="clear-panel--click">
+                                <!-- <div class="wind-uv--content flex">
                                 <div class="uv-content"> <img src="imgs/sun-uv.png" alt="sunrise img">
                                     <div> <span> UV index </span> <span> Low </span>
                                     </div>
@@ -180,14 +191,14 @@
                                     <span> Chance of snow 0%</span>
                                 </div>
                             </div> -->
+                            </div>
                         </div>
-                    </div>
-                    <div id="attractions-panel--content" class="map-panel--content panel-content--1 flex hidden">
-                        <div class="inner-panel--header">
-                            <span> Please See Website For More information </span>
-                        </div>
-                        <div id="attractions" class="panel-loaded clear-panel--click">
-                            <!-- <div class="panel-content--2">
+                        <div id="attractions-panel--content" class="map-panel--content panel-content--1 flex hidden">
+                            <div class="inner-panel--header">
+                                <span> Please See Website For More information </span>
+                            </div>
+                            <div id="attractions" class="panel-loaded clear-panel--click">
+                                <!-- <div class="panel-content--2">
                                 <div class="panel-cards flex">
                                     <div class="panel-photo">
                                         <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/07/fd/20/caption.jpg"
@@ -208,19 +219,19 @@
                                     </div>
                                 </div>
                             </div> -->
+                            </div>
+                            <div id="pagination-attraction" class="pagination flex clear-panel--click">
+                                <button class="btn-att--panel"> Previous </button>
+                                <div class="page-number"> 1 of 3 </div>
+                                <button class="btn-att--panel"> Next </button>
+                            </div>
                         </div>
-                        <div id="pagination-attraction" class="pagination flex clear-panel--click">
-                            <button class="btn-att--panel"> Previous </button>
-                            <div class="page-number"> 1 of 3 </div>
-                            <button class="btn-att--panel"> Next </button>
-                        </div>
-                    </div>
-                    <div id="restaurants-panel--content" class="map-panel--content panel-content--1 hidden">
-                        <div class="inner-panel--header">
-                            <span> Please See Website For More information </span>
-                        </div>
-                        <div id="restaurants" class="panel-loaded clear-panel--click">
-                            <!-- <div class="panel-content--2">
+                        <div id="restaurants-panel--content" class="map-panel--content panel-content--1 hidden">
+                            <div class="inner-panel--header">
+                                <span> Please See Website For More information </span>
+                            </div>
+                            <div id="restaurants" class="panel-loaded clear-panel--click">
+                                <!-- <div class="panel-content--2">
                                 <div class="panel-cards flex">
                                     <div class="panel-photo">
                                         <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/07/fd/20/caption.jpg"
@@ -241,19 +252,19 @@
                                     </div>
                                 </div>
                             </div> -->
+                            </div>
+                            <div id="pagination-restaurant" class="pagination clear-panel--click flex">
+                                <button class="btn-rest--panel "> Previous </button>
+                                <div class="page-number"> 1 of 3 </div>
+                                <button class="btn-rest--panel"> Next </button>
+                            </div>
                         </div>
-                        <div id="pagination-restaurant" class="pagination clear-panel--click flex">
-                            <button class="btn-rest--panel "> Previous </button>
-                            <div class="page-number"> 1 of 3 </div>
-                            <button class="btn-rest--panel"> Next </button>
-                        </div>
-                    </div>
-                    <div id="hotels-panel--content" class="map-panel--content hotels-content--1 hidden">
-                        <div class="inner-panel--header">
-                            <span> Please See Website For More information </span>
-                        </div>
-                        <div id="hotels" class="panel-loaded clear-panel--click">
-                            <!-- <div class="panel-content--2">
+                        <div id="hotels-panel--content" class="map-panel--content hotels-content--1 hidden">
+                            <div class="inner-panel--header">
+                                <span> Please See Website For More information </span>
+                            </div>
+                            <div id="hotels" class="panel-loaded clear-panel--click">
+                                <!-- <div class="panel-content--2">
                                 <div class="panel-cards flex">
                                     <div class="panel-photo">
                                         <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/07/fd/20/caption.jpg"
@@ -276,38 +287,38 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
-                        <div id="pagination-hotel" class="pagination flex">
-                            <button class="btn-hotel--panel "> Previous </button>
-                            <div class="page-number"> 1 of 3 </div>
-                            <button class="btn-hotel--panel"> Next </button>
+                            </div>
+                            <div id="pagination-hotel" class="pagination flex">
+                                <button class="btn-hotel--panel "> Previous </button>
+                                <div class="page-number"> 1 of 3 </div>
+                                <button class="btn-hotel--panel"> Next </button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div id="map" class="map"></div>
             </div>
-            <div id="map" class="map"></div>
-        </div>
-    </section>
-    <section class="saves-section">
-        <h2> Saves </h2>
-        <h5> Attention: Double click / tap to delete </h5>
+        </section>
+        <section id="saves-section" class="saves-section">
+            <h2> Saves </h2>
+            <h5> Attention: Double click / tap to delete </h5>
             <h3> Saved Attractions </h3>
-        <div id="saved-attractions" class="saves-content saved-attractions-content">
-            
-        </div>
-         <h3> Saved Restaurants </h3>
-         <div id="saved-restaurants" class="saves-content saved-attractions-content">
+            <div id="saved-attractions" class="saves-content saved-attractions-content">
 
-         </div>
-          <h3> Saved Hotels </h3>
-          <div id="saved-hotels" class="saves-content saved-attractions-content">
+            </div>
+            <h3> Saved Restaurants </h3>
+            <div id="saved-restaurants" class="saves-content saved-attractions-content">
 
-          </div>
-    </section>
+            </div>
+            <h3> Saved Hotels </h3>
+            <div id="saved-hotels" class="saves-content saved-attractions-content">
+
+            </div>
+        </section>
     </div>
 </body>
 <footer>
-    <ul class="nav-list footer-nav nav-list flex">
+    <ul class="footer-nav nav-list flex">
         <nav class="nav-bar">
             <ul class="nav-list">
                 <li><a href="/index.html"> Home </a></li>

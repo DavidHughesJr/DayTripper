@@ -19,14 +19,13 @@ class RestaurantsView extends View {
   _renderRestaurants(data) {
     this._data = data;
     this._clearChild();
-    console.log(data);
     const loadData = () => {
       const renderRestaurants = this._data.map((data) => {
         data.isClosed ? "Open" : "Closed";
         const restaurantCard = this._generateMarkup(data);
 
         return restaurantCard;
-      });
+      }).join('');
       this._childElement.insertAdjacentHTML("afterbegin", renderRestaurants);
     };
     setTimeout(loadData, LOAD_CURRENT_PANEL);

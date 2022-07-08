@@ -24,7 +24,6 @@ class HotelsPaginationView extends View {
     map.addEventListener("click", () => {
       let currentPage = 1
       numPages = Math.ceil(this._data.hotels.length / RESULTS_PER_PANEL);
-      console.log(currentPage);
     });
 
     if (currentPage === 1 && numPages > 1) {

@@ -16,21 +16,33 @@
         type="text/css" /> -->
     <title>Document</title>
 </head>
+
 <body>
     <header class="header">
         <div>
             <h3>Day tripper</h3>
         </div>
         <nav class="nav-bar">
-            <ul class="nav-list">
+            <ul class="nav-list top-nav">
                 <li><a href="/index.html"> Home </a></li>
-                <li><a href="html/saves.html"> Saves </a></li>
+                <li><a href="./html/map.html#saves-section"> Saves </a></li>
                 <li><a href="html/map.html"> Map </a></li>
                 <li class="cta-btn"><a href="html/how.html"> How It Works </a></li>
             </ul>
+            <div id="hamburger-icon" class="nav-hamburger">
+                <ul id="hamburger" class="nav-list--hamburger">
+                    <div class="hamburger-container hidden">
+                        <li><a href="/index.html"> Home </a></li>
+                        <li><a href="./html/map.html#saves-section"> Saves </a></li>
+                        <li><a href="html/map.html"> Map </a></li>
+                        <li><a href="html/how.html"> How It Works </a></li>
+                    </div>
+                </ul>
+
+            </div>
         </nav>
     </header>
-    <section id="hero-1" class="homepage-section--1">
+    <section id="hero-1" class="homepage-section--1 sticky-nav--observer">
         <div class="hero-container--1 flex">
             <div class="hero-content--1">
                 <h3>Amazing</h3>
@@ -61,7 +73,7 @@
                     <div class="card-info">
                         <h3> Weather Forecast </h3>
                         <p> Stay up to date with current Weather. Get the current day's hourly weather report. Switch
-                            between fahrenheit a celsius. Look at the 3 day forcast. As well as receive
+                            between fahrenheit a celsius. Look at the 3 day forecast. As well as receive
                             uv, wind, sunrise, sunset, and humidity information! </p>
                     </div>
                 </div>
@@ -71,7 +83,8 @@
                     </div>
                     <div class="card-info">
                         <h3> Attractions Restaurants & Hotels </h3>
-                        <p> Sort through local attractions restaurants and hotel as you plan your search. Don't forget to save items you like. All
+                        <p> Sort through local attractions restaurants and hotel as you plan your search. Don't forget
+                            to save items you like. All
                             saved items will be stored in the saves section located below the map! </p>
                     </div>
                 </div>
@@ -81,14 +94,16 @@
                     </div>
                     <div class="card-info">
                         <h3> One Click Feature </h3>
-                        <p> Upon loading you will notice the local forecast, attractions, restaurants and hotels. However you are 
-                            just one click away from discovering these items anywhere in the world. Simplying pick a location a tap it! Make sure to
+                        <p> Upon loading you will notice the local forecast, attractions, restaurants and hotels.
+                            However you are
+                            just one click away from discovering these items anywhere in the world. Simply pick a
+                            location a tap it! Make sure to
                             zoom in for better accuracy! </p>
                     </div>
                 </div>
             </div>
             <div class="info-btn--container flex">
-                 <a href="html/map.html"> <button id='info-btn--1' class="info-btn btn"> Begin Your Search </button> </a>
+                <a href="html/map.html"> <button id='info-btn--1' class="info-btn btn"> Begin Your Search </button> </a>
             </div>
         </div>
     </section>
@@ -111,7 +126,7 @@
             <nav class="nav-bar">
                 <ul class="nav-list">
                     <li><a href="/index.html"> Home </a></li>
-                    <li><a href="html/saves.html"> Saves </a></li>
+                    <li><a href="./html/map.html#saves-section"> Saves </a></li>
                     <li><a href="html/map.html"> Map </a></li>
                     <li> <a href="html/how.html"> How It Works </a></li>
                 </ul>
@@ -186,7 +201,7 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div id="weekly-forcast-container" class="weekly-forcast--container clear-panel--click">
+                        <div id="weekly-forecast-container" class="weekly-forcast--container clear-panel--click">
                             <!-- <div class="weekly-forcast--content flex">
                                 <span class="weekly-forcast--day"> Today </span>
                                 <img src="//cdn.weatherapi.com/weather/64x64/day/176.png"
@@ -338,7 +353,7 @@
                                 </div>
                             </div> -->
                         </div>
-                        <div id="pagination-hotel" class="pagination flex">
+                        <div id="pagination-hotel" class="pagination flex clear-panel--click">
                             <button class="btn-hotel--panel "> Previous </button>
                             <div class="page-number"> 1 of 3 </div>
                             <button class="btn-hotel--panel"> Next </button>

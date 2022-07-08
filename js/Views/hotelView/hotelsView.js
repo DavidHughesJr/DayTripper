@@ -19,7 +19,6 @@ class HotelsView extends View {
   _renderHotels(data) {
     this._data = data;
     this._clearChild();
-    console.log(data);
     const loadData = () => {
       const renderHotels = this._data
         .map((data) => {
@@ -56,7 +55,7 @@ class HotelsView extends View {
                             <div class="panel-info--2 flex">
                             <div class="trip-link"> <span> <a href="${
                               data.tripAdvisorUrl
-                            }"> <button> More Info 🌐 </button> </a> </span> </div>
+                            }"> More Info 🌐 </a> </span> </div>
                             <div> <button class="save-button">  Save ❤  </button> </div>
                         </div>
                         </div>

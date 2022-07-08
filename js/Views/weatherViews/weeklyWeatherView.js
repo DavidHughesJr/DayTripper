@@ -5,7 +5,7 @@ import rain from "url:../../../imgs/raindrop.png";
 import moment from "moment";
 
 class WeeklyWeatherView extends View {
-  _parentElement = document.getElementById("weekly-forcast-container");
+  _parentElement = document.getElementById("weekly-forecast-container");
   _childElement = document.getElementById("weekly-forcast");
 
   _renderWeeklyWeather(data) {

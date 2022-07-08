@@ -223,7 +223,7 @@ export const loadRestaurants = async (lat, lng) => {
   }
 };
 // ----- RESTAURANTS PAGINATION ----- //
-export const getResturantsPage = (page = state.searchAttractions.page) => {
+export const getRestaurantsPage = (page = state.searchAttractions.page) => {
   state.searchRestaurants.page = page;
 
   const start = (page - 1) * 3;
@@ -289,16 +289,3 @@ export const getHotelsPage = (page = state.searchHotels.page) => {
   const end = page * state.searchHotels.resultsPerPanel;
   return state.searchHotels.hotels.slice(start, end);
 };
-
-const saveToLocalStorage = () => {
-  localStorage.setItem('saved', JSON.stringify(state.saved))
-}
-
-export const addToSaved = (item) => {
-  state.saved.push(item)
-}
-const displaySaves = () => {
-  const storage = localStorage.getItem('saved')
-  if(storage) state.bookmarks = JSON.parse(storage)
-}
-displaySaves()
