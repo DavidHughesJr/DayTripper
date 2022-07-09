@@ -173,8 +173,8 @@ const generateMap = async (local) => {
   // controls all information that will be displayed on current location //
   const initMap = async () => {
     // controlExtensions(); // controls all extensions connected to the map
-    // CurrentWeatherView.addHandlerRender(controlLocalWeather);
-    // CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
+    CurrentWeatherView.addHandlerRender(controlLocalWeather);
+    CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
     // AttractionsView.addHandlerRender(controlLocalAttractions);
     // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
     // AttractionsView.addHandlerSaves(controlAttractionsSaves);

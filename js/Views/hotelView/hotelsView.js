@@ -53,9 +53,7 @@ class HotelsView extends View {
                         <div> <span> ${data.ranking} </span></div>
                         <div class="panel-info--2 flex">
                             <div class="panel-info--2 flex">
-                            <div class="trip-link"> <span> <a href="${
-                              data.tripAdvisorUrl
-                            }"> More Info 🌐 </a> </span> </div>
+                            <div class="trip-link"> <span> <a href="${data.tripAdvisorUrl}"> More Info 🌐 </a> </span> </div>
                             <div> <button class="save-button">  Save ❤  </button> </div>
                         </div>
                         </div>
@@ -92,7 +90,7 @@ class HotelsView extends View {
         this._confirmSaveContainer.classList.add("hidden");
       });
 
-      // add no button listner
+      // add no button listener
       this._noSaveBtn.addEventListener("click", () => {
         newSaves = "";
         this._overlay.classList.remove("wait-confirmation");
@@ -128,7 +126,7 @@ class HotelsView extends View {
         this._confirmDeleteContainer.classList.add("hidden");
         this._savedHotelsContainer.remove(itemToDelete);
       });
-      // add no button listner
+      // add no button listener 
       this._noDeleteBtn.addEventListener("click", () => {
         this._overlay.classList.remove("wait-confirmation");
         this._confirmDeleteContainer.classList.add("hidden");

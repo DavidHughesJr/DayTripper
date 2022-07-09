@@ -261,6 +261,7 @@ export const loadHotels = async (city, region) => {
     const hotelsCardData = await hotelsData
       .filter((data) => data.name)
       .map((data) => {
+         console.log(data.business_listings?.mobile_contacts[0]?.value);
         const hotels = {
           name: data.name,
           location: data.location_string,
@@ -268,8 +269,8 @@ export const loadHotels = async (city, region) => {
           price: data.price ? data.price : "Price Not Available",
           rating: data.rating ? data.rating : "Price Not Available",
           ranking: data.ranking ? data.ranking : "Price Not Available",
-          tripAdvisorUrl: data.business_listings?.mobile_contacts[0]?.value
-            ? data.business_listings.mobile_contacts
+          tripAdvisorUrl: data.business_listings?.mobile_contacts
+            ? data.business_listings.mobile_contacts[0]?.value
             : `https://www.tripadvisor.com/Search?q=${data.name}&search`,
         };
         return hotels;

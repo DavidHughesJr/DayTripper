@@ -459,23 +459,23 @@ footer {
 .hourly-rain--container img {
   width: 0.8rem;
 }
-/* ----- WEEKLY FORCAST CONTENT PANEL  ----- */
-.weekly-forcast--container {
+/* ----- WEEKLY FORECAST CONTENT PANEL  ----- */
+.weekly-forecast--container {
   flex-direction: column;
   padding: 1rem;
 }
-.weekly-forcast--day {
+.weekly-forecast--day {
   min-width: 5rem;
   max-width: 5rem;
 }
-.weekly-forcast--content {
+.weekly-forecast--content {
   padding: 0.5rem;
   font-size: 1.2rem;
   gap: 1rem;
   align-items: center;
   justify-content: space-evenly;
 }
-.weekly-forcast--content img {
+.weekly-forecast--content img {
   width: 2rem;
 }
 .rain-chance {
