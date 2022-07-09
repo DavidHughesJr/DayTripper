@@ -2,6 +2,7 @@ import { WEATHER_API_KEY } from "./config";
 import { getJSON, getJSONWithOptions } from "./helper";
 import { RESULTS_PER_PANEL } from "./config";
 import noPhoto from "url:../imgs/no-photo.jpg";
+import { RAPID_API_KEY_TRAVEL } from "./config";
 
 export const state = {
   weather: {},
@@ -136,7 +137,7 @@ export const loadAttractions = async (lat, lng) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "eef61afd8dmshd3e45bf348b2eb9p13bdc2jsn3335b6566b8f",
+        "X-RapidAPI-Key": `${RAPID_API_KEY_TRAVEL}`,
         "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
       },
     };
@@ -192,7 +193,7 @@ export const loadRestaurants = async (lat, lng) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "eef61afd8dmshd3e45bf348b2eb9p13bdc2jsn3335b6566b8f",
+        "X-RapidAPI-Key": `${RAPID_API_KEY_TRAVEL}`,
         "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
       },
     };
@@ -237,7 +238,7 @@ export const loadHotels = async (city, region) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "eef61afd8dmshd3e45bf348b2eb9p13bdc2jsn3335b6566b8f",
+        "X-RapidAPI-Key": `${RAPID_API_KEY_TRAVEL}`,
         "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
       },
     };

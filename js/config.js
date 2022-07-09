@@ -5,3 +5,4 @@ export const RESULTS_PER_PANEL = "4";
 export const NO_SAVED_HOTELS = 'You have no saved hotels.'
 export const NO_SAVED_ATTRACTIONS = 'You have no saved attractions'
 export const NO_SAVED_RESTAURANTS = "You have no saved restaurants";
+export const RAPID_API_KEY_TRAVEL = `6fb29b2194msh8638d8a5c2513b3p1569f5jsn5cc700f03931`;
