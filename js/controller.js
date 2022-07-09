@@ -171,18 +171,18 @@ const generateMap = async (local) => {
   };
   // controls all information that will be displayed on current location //
   const initMap = async () => {
-    // controlExtensions(); // controls all extensions connected to the map
+    controlExtensions(); // controls all extensions connected to the map
     CurrentWeatherView.addHandlerRender(controlLocalWeather);
     CurrentWeatherView.addHandlerRender(controlInformationOnMapClick);
-    // AttractionsView.addHandlerRender(controlLocalAttractions);
-    // AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
-    // AttractionsView.addHandlerSaves(controlAttractionsSaves);
-    // RestaurantsView.addHandlerRender(controlLocalRestaurants);
-    // RestaurantsPaginationView.addHandlerClick(controlRestaurantsPagination)
-    // RestaurantsView.addHandlerSaves(controlRestaurantsSaves);
-    // HotelsView.addHandlerRender(controlLocalHotels);
-    // HotelsPaginationView.addHandlerClick(controlHotelsPagination);
-    // HotelsView.addHandlerSaves(controlHotelsSaves);
+    AttractionsView.addHandlerRender(controlLocalAttractions);
+    AttractionsPaginationView.addHandlerClick(controlAttractionsPagination);
+    AttractionsView.addHandlerSaves(controlAttractionsSaves);
+    RestaurantsView.addHandlerRender(controlLocalRestaurants);
+    RestaurantsPaginationView.addHandlerClick(controlRestaurantsPagination)
+    RestaurantsView.addHandlerSaves(controlRestaurantsSaves);
+    HotelsView.addHandlerRender(controlLocalHotels);
+    HotelsPaginationView.addHandlerClick(controlHotelsPagination);
+    HotelsView.addHandlerSaves(controlHotelsSaves);
   };
   initMap();
 };
