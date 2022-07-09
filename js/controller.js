@@ -5,7 +5,7 @@ import CurrentWeatherView from "./Views/weatherViews/currentWeatherView"
 import HourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
 import WeeklyWeatherView from "./Views/weatherViews/weeklyWeatherView";
 import AstroWeatherView from "./Views/weatherViews/astroWeatherView";
-import PanelView from "./Views/pageViews/panelView";
+import PanelView from "./Views/pageViews/PanelView"
 import pageView from "./Views/pageViews/pageView";
 import AttractionsView from "./Views/attractionViews/attractionsView";
 import AttractionsPaginationView from "./Views/attractionViews/attractionsPagination";
