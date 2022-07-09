@@ -1,11 +1,11 @@
 import mapboxgl, { Marker } from "mapbox-gl";
 import * as model from "./model";
 import View from "./Views/View";
-import CurrentWeatherView from "./Views/weatherViews/CurrentWeatherView"
-import HourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
-import WeeklyWeatherView from "./Views/weatherViews/WeeklyWeatherView";
-import AstroWeatherView from "./Views/weatherViews/AstroWeatherView";
-import PanelView from "./Views/pageViews/PanelView";
+import CurrentWeatherView from "./Views/weatherViews/currentWeatherView"
+import HourlyWeatherView from "./Views/weatherViews/hourlyWeatherView";
+import WeeklyWeatherView from "./Views/weatherViews/weeklyWeatherView";
+import AstroWeatherView from "./Views/weatherViews/astroWeatherView";
+import PanelView from "./Views/pageViews/panelView";
 import pageView from "./Views/pageViews/pageView";
 import AttractionsView from "./Views/attractionViews/attractionsView";
 import AttractionsPaginationView from "./Views/attractionViews/attractionsPagination";
