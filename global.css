@@ -726,12 +726,13 @@ footer {
   background-color: antiquewhite;
 }
 .how-container {
+  text-align: center;
   line-height: 4rem;
   width: 75%;
   padding: 1rem;
 }
 .how-img {
-  width: auto;
+  width: 100%;
 }
 .how-container--img {
   width: 95%;
@@ -806,9 +807,12 @@ footer {
   .how-to--content {
     padding: 0;
   }
-  .how-container--img {
-    width: 95%;
-  }
+  .how-img {
+  width: auto
+}
+.how-container {
+  overflow: scroll;
+}
 }
 /* ----- IPHONE & ANDROID -----  */
 @media only screen and (max-width: 481px) {

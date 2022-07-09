@@ -4,6 +4,7 @@ import { NO_SAVED_ATTRACTIONS } from "../../config";
 
 class AttractionsView extends View {
   _data;
+  _mapPage = document.getElementById('map-page')
   _parentElement = document.getElementById("attractions-panel--content");
   _childElement = document.getElementById("attractions");
   _nextBtn = document.querySelector(".att-next-button");
@@ -87,7 +88,7 @@ class AttractionsView extends View {
         this._confirmSaveContainer.classList.add("hidden");
       });
 
-      // add no button listner
+      // add no button listener
       this._noSaveBtn.addEventListener("click", () => {
         newSaves = "";
         this._overlay.classList.remove("wait-confirmation");
@@ -96,7 +97,7 @@ class AttractionsView extends View {
     });
   }
   showSaved() {
-    if (this._savedAttractions) {
+    if (this._savedAttractions && document.URL.includes("homepage.aspx")) {
       this._savedAttractionsContainer.insertAdjacentHTML(
         "afterbegin",
         this._savedAttractions
@@ -123,7 +124,7 @@ class AttractionsView extends View {
         this._confirmDeleteContainer.classList.add("hidden");
         this._savedAttractionsContainer.remove(itemToDelete);
       });
-      // add no button listner
+      // add no button listener
       this._noDeleteBtn.addEventListener("click", () => {
         this._overlay.classList.remove("wait-confirmation");
         this._confirmDeleteContainer.classList.add("hidden");
