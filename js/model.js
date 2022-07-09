@@ -37,7 +37,7 @@ const getCurrentDay = () => {
 
 const createWeatherObject = (data) => {
   const currentWeather = data.current;
-  const currentForcast = data.forecast.forecastday[0].day;
+  const currentforecast = data.forecast.forecastday[0].day;
   const currentLocation = data.location;
   getCurrentDay();
   // return in the format you want //
@@ -51,10 +51,10 @@ const createWeatherObject = (data) => {
     feelsLikeC: currentWeather.feelslike_c,
     currentTime: getCurrentDay(),
     currentCondition: currentWeather.condition.text,
-    currentHighF: currentForcast.maxtemp_f,
-    currentHighC: currentForcast.maxtemp_c,
-    currentLowF: currentForcast.mintemp_f,
-    currentLowC: currentForcast.mintemp_c,
+    currentHighF: currentforecast.maxtemp_f,
+    currentHighC: currentforecast.maxtemp_c,
+    currentLowF: currentforecast.mintemp_f,
+    currentLowC: currentforecast.mintemp_c,
   };
 };
 
@@ -261,7 +261,7 @@ export const loadHotels = async (city, region) => {
     const hotelsCardData = await hotelsData
       .filter((data) => data.name)
       .map((data) => {
-         console.log(data.business_listings?.mobile_contacts[0]?.value);
+        console.log(data.business_listings?.mobile_contacts[0]?.value);
         const hotels = {
           name: data.name,
           location: data.location_string,

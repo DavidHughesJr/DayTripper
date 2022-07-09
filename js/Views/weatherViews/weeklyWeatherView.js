@@ -6,7 +6,7 @@ import moment from "moment";
 
 class WeeklyWeatherView extends View {
   _parentElement = document.getElementById("weekly-forecast-container");
-  _childElement = document.getElementById("weekly-forcast");
+  _childElement = document.getElementById("weekly-forecast");
 
   _renderWeeklyWeather(data) {
     const loadData = () => {
@@ -25,8 +25,8 @@ class WeeklyWeatherView extends View {
 
   _genderateMarkup(data) {
     return `
-        <div id="weekly-forcast" class="weekly-forcast--content flex">
-        <span class="weekly-forcast--day"> ${moment(data.date).format(
+        <div id="weekly-forecast" class="weekly-forecast--content flex">
+        <span class="weekly-forecast--day"> ${moment(data.date).format(
           "ddd"
         )} </span>
         <img src="${data.icon}"

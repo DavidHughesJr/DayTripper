@@ -20,7 +20,7 @@
   "dependencies": {
     "mapbox-gl": "^2.8.2",
     "moment": "^2.29.3",
-    "parcel": "^2.6.1",
+    "parcel": "^2.6.2",
     "regenerator-runtime": "^0.13.9"
   }
 }

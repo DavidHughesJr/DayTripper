@@ -8,7 +8,7 @@ class PanelView extends View {
   _tabContent = document.querySelectorAll(".map-panel--content");
   // panel selectors
   _tabSelectors = document.querySelectorAll(".button-panel--selectors");
-  _forecastPanelSelector = document.getElementById("forcast-panel--selector");
+  _forecastPanelSelector = document.getElementById("forecast-panel--selector");
   _attractionsPanelSelector = document.getElementById(
     "attractions-panel--selector"
   );
@@ -17,7 +17,7 @@ class PanelView extends View {
   );
   _hotelsPanelSelector = document.getElementById("hotels-panel--selector");
   //panel content
-  _forecastPanelContent = document.getElementById("forcast-panel--content");
+  _forecastPanelContent = document.getElementById("forecast-panel--content");
   _attractionsPanelContent = document.getElementById(
     "attractions-panel--content"
   );
