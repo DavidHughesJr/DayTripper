@@ -97,7 +97,7 @@ class AttractionsView extends View {
     });
   }
   showSaved() {
-    if (this._savedAttractions && document.URL.includes("homepage.aspx")) {
+    if (this._savedAttractions && this._mapPage) {
       this._savedAttractionsContainer.insertAdjacentHTML(
         "afterbegin",
         this._savedAttractions
