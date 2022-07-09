@@ -1,8 +1,7 @@
 import mapboxgl, { Marker } from "mapbox-gl";
 import * as model from "./model";
 import View from "./Views/View";
-import CurrentWeatherView from "./Views/weatherViews/CurrentWeatherView";
-import hourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
+
 import HourlyWeatherView from "./Views/weatherViews/HourlyWeatherView";
 import WeeklyWeatherView from "./Views/weatherViews/WeeklyWeatherView";
 import AstroWeatherView from "./Views/weatherViews/AstroWeatherView";
