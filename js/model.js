@@ -119,7 +119,7 @@ const createAstroWeather = (data) => {
 export const loadWeather = async (lat, lng) => {
   try {
     const data = await getJSON(
-      ` http://api.weatherapi.com/v1/forecast.json?key=3842bad69ba64b70a98112348222006&q=${lat},${lng}&days=3&aqi=no&alerts=no`
+      ` https://api.weatherapi.com/v1/forecast.json?key=3842bad69ba64b70a98112348222006&q=${lat},${lng}&days=3&aqi=no&alerts=no`
     );
     createHourlyWeather(data);
     createWeeklyWeather(data);
